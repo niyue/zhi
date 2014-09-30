@@ -12,7 +12,6 @@
  *
  *= require_tree .
  *= require_self
- *= require formtastic-bootstrap
  */
 body {
   padding-top: 50px;
@@ -20,4 +19,11 @@ body {
 .starter-template {
   padding: 40px 15px;
   text-align: center;
+}
+.inputs li {
+    list-style-type: none;
+}
+
+.actions li {
+    list-style-type: none;
 }
