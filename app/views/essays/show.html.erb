@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @essay.name %></h1>
+
+<div id="question">
+  <strong>問題:</strong>
+  <%=raw @essay.description %>
+</div>
+
+<div id="answer">
+  <strong>解答:</strong>
+  <%=raw @essay.answer %>
+</div>
+
+<%= link_to '編輯', edit_essay_path(@essay) %> |
+<%= link_to '返回', essays_path %>

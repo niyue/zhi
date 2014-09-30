@@ -1,25 +1,28 @@
-<%= simple_form_for(@short_answer, html: { role: 'form' }) do |f| %>
-  <% if @short_answer.errors.any? %>
+<%= simple_form_for(@essay, html: { role: 'form' }) do |f| %>
+  <% if @essay.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@short_answer.errors.count, "error") %> prohibited this short_answer from being saved:</h2>
+      <h2><%= pluralize(@essay.errors.count, "error") %> prohibited this essay from being saved:</h2>
 
       <ul>
-      <% @short_answer.errors.full_messages.each do |message| %>
+      <% @essay.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-
+  <div class="form-inputs">
   <%= f.input :name, :label => '名稱' %>
   <%= f.input :description, :as => :ckeditor, 
     :label => '問題',
     :input_html => { :ckeditor => { :customConfig => '/assets/ckeditor/config.js?body=1' } } %>
   <%= f.input :answer, :as => :ckeditor, 
-    :label => '答案',
+    :label => '解答',
     :input_html => { :ckeditor => { :customConfig => '/assets/ckeditor/config.js?body=1' } } %>
+  </div>
   
+  <div class="form-actions">
   <%= f.button :submit, '保存' %>
+  </div>
   
 <% end %>

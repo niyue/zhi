@@ -1,0 +1,27 @@
+<h1>題目列表</h1>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>名稱</th>
+      <th>問題</th>
+      <th colspan="3">操作</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @essays.each do |essay| %>
+      <tr>
+        <td><%= essay.name %></td>
+        <td><%=raw essay.description %></td>
+        <td><%= link_to '查看', essay %></td>
+        <td><%= link_to '編輯', edit_essay_path(essay) %></td>
+        <td><%= link_to '刪除', essay, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新的問題', new_essay_path %>
