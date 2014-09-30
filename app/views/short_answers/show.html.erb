@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @short_answer.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @short_answer.description %>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @short_answer.answer %>
+</p>
+
+<%= link_to 'Edit', edit_short_answer_path(@short_answer) %> |
+<%= link_to 'Back', short_answers_path %>

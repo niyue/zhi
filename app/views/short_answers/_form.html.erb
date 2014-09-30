@@ -1,0 +1,27 @@
+<%= semantic_form_for(@short_answer) do |f| %>
+  <% if @short_answer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@short_answer.errors.count, "error") %> prohibited this short_answer from being saved:</h2>
+
+      <ul>
+      <% @short_answer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <%= f.inputs do %>
+    <%= f.input :name %>
+    <%= f.input :description, :as => :ckeditor, 
+      :input_html => { :ckeditor => { :customConfig => '/assets/ckeditor/config.js?body=1' } } %>
+    <%= f.input :answer, :as => :ckeditor, 
+      :input_html => { :ckeditor => { :customConfig => '/assets/ckeditor/config.js?body=1' } } %>
+  <% end %>
+  
+  <%= f.actions do %>
+    <%= f.action :submit, :as => :button %>
+  <% end %>
+  
+<% end %>

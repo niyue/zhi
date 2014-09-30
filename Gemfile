@@ -4,7 +4,12 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use jdbcsqlite3 as the database for Active Record
-gem 'activerecord-jdbcsqlite3-adapter'
+if RUBY_PLATFORM == "java"
+    gem 'activerecord-jdbcsqlite3-adapter'
+    gem 'jruby-openssl'
+else
+    gem 'sqlite3'
+end 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -30,6 +35,7 @@ gem 'sdoc', '~> 0.4.0',                              group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'bootstrap_form'
 gem 'puma'
-gem 'mercury-rails'
+gem 'ckeditor'
+gem 'paperclip'
+gem 'formtastic', '~> 3.0'
