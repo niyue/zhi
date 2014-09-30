@@ -1,13 +1,16 @@
 var customConfig = function(config) {
     config.toolbar = [
-        { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteFromWord', 'Undo', 'Redo'] },
+        { name: 'clipboard', items: ['PasteFromWord', 'Undo', 'Redo'] },
         { name: 'editing', items: ['Find', 'Replace'] },
         { name: 'links', items: ['Link', 'Unlink'] },
         { name: 'basicstyles', items: ['Bold', "Italic", 'Underline', 'Strike', 'Subscript', 'Superscript', 'RemoveFormat'] },
         { name: 'paragraph', items: ['NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
-        { name: 'insert', items: ['Image', 'Table'] },
-        { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] }
+        { name: 'insert', items: ['Image', 'Table', 'InsertPre'] },
+        { name: 'styles', items: ['Styles', 'Font', 'FontSize'] }
     ];
+    config.extraPlugins = 'insertpre';
+    config.removePlugins = 'elementspath';
+    config.toolbarCanCollapse = true;
 };
 
 CKEDITOR.editorConfig = function( config )
