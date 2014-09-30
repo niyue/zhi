@@ -8,6 +8,7 @@ var customConfig = function(config) {
         { name: 'insert', items: ['Image', 'Table', 'InsertPre'] },
         { name: 'styles', items: ['Styles', 'Font', 'FontSize'] }
     ];
+    config.uiColor = '#FFFFFF';
     config.extraPlugins = 'insertpre';
     config.removePlugins = 'elementspath';
     config.toolbarCanCollapse = true;
