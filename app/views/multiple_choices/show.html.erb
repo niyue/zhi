@@ -6,11 +6,20 @@
 </p>
 <p>
   <strong>選項:</strong>
-  <ol>
+  <ol type="A">
   <% @multiple_choice.choices.each do |c| %>
-    <li><%= c.description %></li>
+    <li><%= c.description %>
+        <% if c.correct %>
+           <span class="glyphicon glyphicon-ok"></span> 
+        <% end %>
+    </li>
   <% end %>
   </ol>
+</p>
+
+<p>
+  <strong>解答:</strong>
+  <%=raw @multiple_choice.answer %>
 </p>
 
 <%= link_to '編輯', edit_multiple_choice_path(@multiple_choice) %> |

@@ -1,20 +1,24 @@
-<h1>選擇題列表</h1>
+<div class="row">
+  <div class="col-md-11"><h1>選擇題列表</h1></div><!--
+  --><div class="col-md-1 top-padding-buffer"><%= link_to '新的選擇題', new_multiple_choice_path %></div>
+</div>
 
-<table>
+<table class="table table-striped table-bordered top-buffer">
   <thead>
     <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th>序號</th>
+      <th>問題</th>
+      <th colspan="2">操作</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @multiple_choices.each do |multiple_choice| %>
+    <% @multiple_choices.each do |mc| %>
       <tr>
-        <td><%= multiple_choice.description %></td>
-        <td><%= link_to 'Show', multiple_choice %></td>
-        <td><%= link_to 'Edit', edit_multiple_choice_path(multiple_choice) %></td>
-        <td><%= link_to 'Destroy', multiple_choice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to mc.id, mc %></td>
+        <td><%=raw mc.description %></td>
+        <td><%= link_to '編輯', edit_multiple_choice_path(mc) %></td>
+        <td><%= link_to '刪除', mc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +26,3 @@
 
 <br>
 
-<%= link_to 'New Multiple choice', new_multiple_choice_path %>
