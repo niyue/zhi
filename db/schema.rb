@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930130836) do
+ActiveRecord::Schema.define(version: 20141001111723) do
+
+  create_table "choices", force: true do |t|
+    t.string   "description"
+    t.boolean  "correct",            default: false
+    t.integer  "multiple_choice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "choices", ["multiple_choice_id"], name: "index_choices_on_multiple_choice_id"
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -30,6 +40,21 @@ ActiveRecord::Schema.define(version: 20140930130836) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
   create_table "essays", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "multiple_choices", force: true do |t|
+    t.text     "description"
+    t.text     "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "short_answers", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.text     "answer"

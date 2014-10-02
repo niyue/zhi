@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>問題:</strong>
+  <%=raw @multiple_choice.description %>
+</p>
+<p>
+  <strong>選項:</strong>
+  <ol>
+  <% @multiple_choice.choices.each do |c| %>
+    <li><%= c.description %></li>
+  <% end %>
+  </ol>
+</p>
+
+<%= link_to '編輯', edit_multiple_choice_path(@multiple_choice) %> |
+<%= link_to '返回', multiple_choices_path %>

@@ -18,7 +18,7 @@ class EssaysControllerTest < ActionController::TestCase
 
   test "should create essay" do
     assert_difference('Essay.count') do
-      post :create, essay: {  }
+      post :create, essay: { name: 'hanoi', description: 'essay question' }
     end
 
     assert_redirected_to essay_path(assigns(:essay))
@@ -35,7 +35,8 @@ class EssaysControllerTest < ActionController::TestCase
   end
 
   test "should update essay" do
-    patch :update, id: @essay, essay: {  }
+    patch :update, id: @essay, essay: { name: 'hanoi', 
+      description: 'medium difficulty question' }
     assert_redirected_to essay_path(assigns(:essay))
   end
 
