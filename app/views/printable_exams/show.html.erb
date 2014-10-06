@@ -5,9 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>zhi</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   </head>
   <body>
     <h1><%= @exam.name %></h1>
+    <h2>Questions</h2>
+    <ol>
+      <% @questions.each do |q| %>
+        <%= q.description %>
+      <% end %>
+    </ol>
   </body>
 </html>

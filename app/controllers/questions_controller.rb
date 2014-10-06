@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_action :set_exam
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   # GET /questions
@@ -30,8 +31,8 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render :show, status: :created, location: @question }
+        format.html { redirect_to [@exam, @question], notice: 'Question was successfully created.' }
+        format.json { render :show, status: :created, location: [@exam, @question] }
       else
         format.html { render :new }
         format.json { render json: @question.errors, status: :unprocessable_entity }
@@ -44,8 +45,8 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
-        format.json { render :show, status: :ok, location: @question }
+        format.html { redirect_to [@exam, @question], notice: 'Question was successfully updated.' }
+        format.json { render :show, status: :ok, location: [@exam, @question] }
       else
         format.html { render :edit }
         format.json { render json: @question.errors, status: :unprocessable_entity }
@@ -58,13 +59,17 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     respond_to do |format|
-      format.html { redirect_to questions_url, notice: 'Question was successfully destroyed.' }
+      format.html { redirect_to exam_questions_url(@exam), notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_exam
+      @exam = Exam.find(params[:exam_id])
+    end
+    
     def set_question
       @question = Question.find(params[:id])
     end

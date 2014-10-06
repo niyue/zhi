@@ -18,9 +18,9 @@
         <td><%= question.question_id %></td>
         <td><%= question.question_type %></td>
         <td><%= question.position %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', exam_question_path(@exam, question) %></td>
+        <td><%= link_to 'Edit', edit_exam_question_path(@exam, question) %></td>
+        <td><%= link_to 'Destroy', exam_question_path(@exam, question), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Question', new_question_path %>
+<%= link_to 'New Question', new_exam_question_path(@exam) %>

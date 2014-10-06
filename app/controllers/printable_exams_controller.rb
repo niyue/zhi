@@ -2,6 +2,7 @@ class PrintableExamsController < ApplicationController
   before_action :set_exam, only: [:show]
   
   def show
+    @questions = @exam.questions;
     render layout: false
   end
   
