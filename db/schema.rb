@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001111723) do
+ActiveRecord::Schema.define(version: 20141004144221) do
 
   create_table "choices", force: true do |t|
     t.string   "description"
@@ -47,12 +47,30 @@ ActiveRecord::Schema.define(version: 20141001111723) do
     t.datetime "updated_at"
   end
 
+  create_table "exams", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "multiple_choices", force: true do |t|
     t.text     "description"
     t.text     "answer"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "questions", force: true do |t|
+    t.integer  "exam_id"
+    t.integer  "question_id"
+    t.string   "question_type"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["exam_id"], name: "index_questions_on_exam_id"
 
   create_table "short_answers", force: true do |t|
     t.string   "name"

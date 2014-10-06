@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  resources :exams do
+    resources :questions
+  end
+  
+  resources :printable_exams  
+
   resources :multiple_choices
 
   resources :essays
