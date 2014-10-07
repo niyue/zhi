@@ -1,14 +1,5 @@
-<%= simple_form_for([@exam, @question]) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.association :exam %>
-    <%= f.input :question_id %>
-    <%= f.input :question_type %>
-    <%= f.input :position %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+<% if id_set.include?(q.id) %>
+  <%= render partial: 'remove_button', locals: { question: question, exam: @exam } %>
+<% else %>
+  <%= render partial: 'add_button', locals: { q: q, exam: @exam } %>
 <% end %>

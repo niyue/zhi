@@ -1,3 +1,5 @@
+require 'set'
+
 class QuestionsController < ApplicationController
   before_action :set_exam
   before_action :set_question, only: [:show, :edit, :update, :destroy]
@@ -16,7 +18,13 @@ class QuestionsController < ApplicationController
   # GET /exams/1/questions/new
   # show all questions to choose from
   def new
-    
+    @question = Question.new
+    @all_multiple_choices = MultipleChoice.all
+    @all_essays = Essay.all
+    @multiple_choices = @exam.multiple_choices
+    @essays = @exam.essays
+    @multiple_choices_ids = id_set(@multiple_choices)
+    @essay_ids = id_set(@essays)
   end
 
   # GET /questions/1/edit
@@ -28,11 +36,18 @@ class QuestionsController < ApplicationController
   # link a new question to the exam
   def create
     @question = Question.new(question_params)
-
+    @question.exam = @exam
     respond_to do |format|
       if @question.save
         format.html { redirect_to [@exam, @question], notice: 'Question was successfully created.' }
         format.json { render :show, status: :created, location: [@exam, @question] }
+        format.js {
+          @multiple_choices = @exam.multiple_choices
+          @essays = @exam.essays  
+          @multiple_choices_ids = id_set(@multiple_choices)
+          @essay_ids = id_set(@essays)
+          @id_set = @question.question_type == 'MultipleChoice' ? @multiple_choices_ids : @essay_ids
+        }
       else
         format.html { render :new }
         format.json { render json: @question.errors, status: :unprocessable_entity }
@@ -61,6 +76,10 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to exam_questions_url(@exam), notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
+      format.js {
+        @multiple_choices = @exam.multiple_choices
+        @essays = @exam.essays  
+      }
     end
   end
 
@@ -77,5 +96,9 @@ class QuestionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
       params.require(:question).permit(:exam_id, :question_id, :question_type, :position)
+    end
+    
+    def id_set(elements)
+      elements.map {|e| e.id}.reduce(Set.new) {|ids, id| ids.add(id)}  
     end
 end

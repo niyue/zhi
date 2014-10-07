@@ -8,5 +8,6 @@ class CreateQuestions < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :questions, [:exam_id, :question_id, :question_type], :unique => true
   end
 end

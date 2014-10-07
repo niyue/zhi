@@ -5,7 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th colspan="4"></th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -17,6 +17,7 @@
         <td><%= link_to 'Print', printable_exam_path(exam), target: '_blank' %></td>
         <td><%= link_to 'Show', exam %></td>
         <td><%= link_to 'Edit', edit_exam_path(exam) %></td>
+        <td><%= link_to 'Questions', new_exam_question_path(exam) %></td>
         <td><%= link_to 'Destroy', exam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
