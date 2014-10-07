@@ -8,15 +8,15 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
-  # GET /questions/1
-  # GET /questions/1.json
+  # GET /exams/1/questions/1
+  # GET /exams/1/questions/1.json
   def show
   end
 
-  # GET /questions/new
+  # GET /exams/1/questions/new
   # show all questions to choose from
   def new
-    @question = Question.new
+    
   end
 
   # GET /questions/1/edit

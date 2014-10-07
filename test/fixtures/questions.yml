@@ -11,3 +11,13 @@ two:
   question_id: 1
   question_type: MyString
   position: 1
+  
+nanjing_mc_binary_search:
+  exam: nanjing
+  question: binary_search_time_complexity (MultipleChoice)
+  position: 1
+
+nanjing_mc_linked_list_loop:
+  exam: nanjing
+  question: linked_list_loop (Essay)
+  position: 2

@@ -9,3 +9,6 @@ one: {}
 #
 two: {}
 #  column: value
+
+linked_list_loop:
+  description: How can you find a loop in a linked list?

@@ -7,3 +7,7 @@ one:
 two:
   name: MyString
   description: MyString
+
+nanjing:
+  name: Nan Jing
+  description: The exam for Nan Jing
