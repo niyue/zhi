@@ -1,5 +1,0 @@
-<%= form_for([exam, Question.new], remote: true) do |f| %>
-    <%= f.hidden_field :question_id, value: q.id %>
-    <%= f.hidden_field :question_type, value: q.class.name %>
-    <%= f.submit 'Add to exam' %>
-<% end %>

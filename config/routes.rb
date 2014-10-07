@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :exams do
+    resources :parts
     resources :questions
   end
   

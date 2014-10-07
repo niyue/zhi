@@ -8,3 +8,6 @@ two:
 
 binary_search_time_complexity:
   description: Binary search time complexity is
+  
+inorder_traversal:
+  description: Is inorder traversal a depth first traversal?

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141004144221) do
+ActiveRecord::Schema.define(version: 20141007122323) do
 
   create_table "choices", force: true do |t|
     t.string   "description"
@@ -60,6 +60,18 @@ ActiveRecord::Schema.define(version: 20141004144221) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "parts", force: true do |t|
+    t.integer  "exam_id"
+    t.integer  "question_id"
+    t.string   "question_type"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "parts", ["exam_id", "question_id", "question_type"], name: "index_parts_on_exam_id_and_question_id_and_question_type", unique: true
+  add_index "parts", ["exam_id"], name: "index_parts_on_exam_id"
 
   create_table "questions", force: true do |t|
     t.integer  "exam_id"

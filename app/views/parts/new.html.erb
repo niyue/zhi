@@ -24,8 +24,9 @@
           <td><%=raw mc.description %></td>
           <td id="<%= mc.class.name + mc.id.to_s %>">
             <%= render partial: 'form', locals: { 
-                id_set: @multiple_choices_ids, q: mc, 
-                exam: @exam, questionship: @question } %>
+                exam: @exam,
+                parts: @parts,
+                question: mc } %>
           </td>
         </tr>
     <% end %>

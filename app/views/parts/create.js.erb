@@ -1,0 +1,3 @@
+$('#questions_count').html("<%= j(render partial: 'questions_count') %>");
+$('#<%= @part.question_type + @part.question_id.to_s %>')
+    .html("<%= j(render partial: 'remove_button', locals: { part: @part, exam: @exam }) %>");

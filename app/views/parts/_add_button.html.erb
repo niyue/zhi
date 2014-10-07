@@ -1,0 +1,5 @@
+<%= form_for([exam, Part.new], remote: true) do |f| %>
+    <%= f.hidden_field :question_id, value: question.id %>
+    <%= f.hidden_field :question_type, value: question.class.name %>
+    <%= f.submit '添加至試卷' %>
+<% end %>

@@ -1,6 +1,6 @@
-class CreateQuestions < ActiveRecord::Migration
+class CreateParts < ActiveRecord::Migration
   def change
-    create_table :questions do |t|
+    create_table :parts do |t|
       t.references :exam, index: true
       t.integer :question_id
       t.string :question_type
@@ -8,6 +8,6 @@ class CreateQuestions < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :questions, [:exam_id, :question_id, :question_type], :unique => true
+    add_index :parts, [:exam_id, :question_id, :question_type], :unique => true
   end
 end

@@ -17,8 +17,18 @@ class Exam < ActiveRecord::Base
     Essay.find(question_ids)
   end
   
+  def find_part(question)
+    logger.debug({
+      type: 'find_a_part_for_exam',
+      parts: self.parts.length,
+      question_id: question.id,
+      question_type: question.class.name
+    })
+    self.parts.find{|p| p.question_id == question.id and p.question_type == question.class.name}
+  end
+  
   private
   def find_questions(question_type)
-    Question.where({ question_type: question_type, exam_id: self.id })
+    Part.where({ question_type: question_type, exam_id: self.id })
   end
 end

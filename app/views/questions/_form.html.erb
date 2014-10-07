@@ -1,5 +1,0 @@
-<% if id_set.include?(q.id) %>
-  <%= render partial: 'remove_button', locals: { question: question, exam: @exam } %>
-<% else %>
-  <%= render partial: 'add_button', locals: { q: q, exam: @exam } %>
-<% end %>

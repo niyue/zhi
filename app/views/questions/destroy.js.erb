@@ -1,3 +1,0 @@
-$('#questions_count').html("<%= j(render partial: 'questions_count') %>");
-$('#<%= @question.question_type + @question.question_id.to_s %>')
-    .html("<%= j(render partial: 'add_button', locals: { q: @q, exam: @exam }) %>");

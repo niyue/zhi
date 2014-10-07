@@ -1,0 +1,6 @@
+<% code = question.class.name + question.id.to_s %>
+<% if parts.has_key?(code) %>
+  <%= render partial: 'remove_button', locals: { part: parts[code], exam: exam } %>
+<% else %>
+  <%= render partial: 'add_button', locals: { question: question, exam: exam } %>
+<% end %>

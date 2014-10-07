@@ -13,4 +13,11 @@ class ExamTest < ActiveSupport::TestCase
     questions = exam.essays
     assert_equal 1, questions.length
   end
+  
+  test 'find part' do
+    exam = exams(:nanjing)
+    part = exam.find_part(multiple_choices(:binary_search_time_complexity))    
+    assert_not_nil part
+    assert_equal 'MultipleChoice', part.question_type
+  end
 end

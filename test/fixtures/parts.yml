@@ -1,17 +1,4 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  exam_id: 
-  question_id: 1
-  question_type: MyString
-  position: 1
-
-two:
-  exam_id: 
-  question_id: 1
-  question_type: MyString
-  position: 1
-  
 nanjing_mc_binary_search:
   exam: nanjing
   question: binary_search_time_complexity (MultipleChoice)
