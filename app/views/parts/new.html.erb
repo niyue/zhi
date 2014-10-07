@@ -48,7 +48,11 @@
       <tr>
         <td><%= link_to essay.name, essay %></td>
         <td><%=raw essay.description %></td>
-        <td>Add to exam</td>
+        <td id="<%= essay.class.name + essay.id.to_s %>">
+            <%= render partial: 'form', locals: { 
+                exam: @exam,
+                parts: @parts,
+                question: essay } %>
       </tr>
     <% end %>
   </tbody>
