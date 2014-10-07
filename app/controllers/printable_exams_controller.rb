@@ -2,7 +2,8 @@ class PrintableExamsController < ApplicationController
   before_action :set_exam, only: [:show]
   
   def show
-    @questions = @exam.questions;
+    @multiple_choices = @exam.multiple_choices;
+    @essays = @exam.essays;
     render layout: false
   end
   

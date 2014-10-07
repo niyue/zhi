@@ -9,10 +9,16 @@
   </head>
   <body>
     <h1><%= @exam.name %></h1>
-    <h2>Questions</h2>
+    <h2>選擇題</h2>
     <ol>
-      <% @questions.each do |q| %>
-        <%= q.description %>
+      <% @multiple_choices.each do |q| %>
+        <li><%= q.description %></li>
+      <% end %>
+    </ol>
+    <h2>問答題</h2>
+    <ol>
+      <% @essays.each do |q| %>
+        <li><%= q.description %></li>
       <% end %>
     </ol>
   </body>
