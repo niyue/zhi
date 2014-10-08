@@ -22,5 +22,12 @@
   <%=raw @multiple_choice.answer %>
 </p>
 
+<div id="referring_exams">
+  <strong>試卷引用:</strong>
+  <% @referring_exams.each do |e| %>
+    <%= link_to e.name, e %>
+  <% end %>
+</div>
+
 <%= link_to '編輯', edit_multiple_choice_path(@multiple_choice) %> |
 <%= link_to '返回', multiple_choices_path %>

@@ -18,4 +18,15 @@ class Part < ActiveRecord::Base
     })
     return depedents > 0
   end
+  
+  def self.exams(question)
+    parts = Part.where({ 
+      question_id: question.id, 
+      question_type: question.class.name })
+    exam_ids = parts.reduce([]) do |ids, p| 
+      ids << p.exam_id
+      ids
+    end
+    Exam.find(exam_ids)
+  end
 end

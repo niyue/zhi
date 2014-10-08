@@ -12,5 +12,12 @@
   <%=raw @essay.answer %>
 </div>
 
+<div id="referring_exams">
+  <strong>試卷引用:</strong>
+  <% @referring_exams.each do |e| %>
+    <%= link_to e.name, e %>
+  <% end %>
+</div>
+
 <%= link_to '編輯', edit_essay_path(@essay) %> |
 <%= link_to '返回', essays_path %>

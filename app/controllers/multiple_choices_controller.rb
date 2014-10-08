@@ -10,6 +10,7 @@ class MultipleChoicesController < ApplicationController
   # GET /multiple_choices/1
   # GET /multiple_choices/1.json
   def show
+    @referring_exams = Part.exams(@multiple_choice)
   end
 
   # GET /multiple_choices/new

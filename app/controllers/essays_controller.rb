@@ -10,6 +10,7 @@ class EssaysController < ApplicationController
   # GET /essays/1
   # GET /essays/1.json
   def show
+    @referring_exams = Part.exams(@essay)
   end
 
   # GET /essays/new

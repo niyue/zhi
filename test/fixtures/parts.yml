@@ -23,3 +23,8 @@ nanjing_e_permutation:
   exam: nanjing
   question: permutation (Essay)
   position: 5
+
+shanghai_mc_skip_list:
+  exam: shanghai
+  question: skip_list (MultipleChoice)
+  position: 1
