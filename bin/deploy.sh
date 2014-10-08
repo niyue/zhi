@@ -3,7 +3,8 @@
 # set environment varibles in secrets
 echo "Running deployment script..."
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-rvm --default use 2.1
+rvm get stable --auto-dotfiles
+ruby -v
 
 echo "Redirecting port 80 to 9292..."
 sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 9292
@@ -21,7 +22,7 @@ DATE=$(date +"%Y%m%d_%H%M%S")
 mv db/data.yml db/backups/data_$DATE.yml
 
 echo "Precompiling assets"
-rake assets:precompile
+RAILS_ENV=production rake assets:precompile
 
 echo "Migrate database..."
 RAILS_ENV=production rake db:migrate
