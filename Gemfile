@@ -43,3 +43,5 @@ gem 'autoprefixer-rails'
 gem 'simple_form'
 gem 'cocoon'
 gem 'jquery-ui-rails'
+
+gem 'backup'

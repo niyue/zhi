@@ -15,3 +15,5 @@
 /log/*.log
 /tmp
 public/ckeditor_assets
+db/backups
+.data
