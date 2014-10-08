@@ -1,4 +1,7 @@
 <div class="row">
+  <h1 class="text-center"><%= @exam.name %></h1>
+</div>
+<div class="row">
 <div class="col-md-4">
     <h1>選擇問題</h1>
 </div>
@@ -58,4 +61,4 @@
   </tbody>
 </table>
 
-<%= link_to '返回', exam_questions_path(@exam) %>
+<%= link_to '返回', exams_path(@exam) %>
