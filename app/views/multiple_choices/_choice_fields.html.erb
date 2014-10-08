@@ -2,7 +2,7 @@
     <%= link_to_remove_association f do  
           '<span class="glyphicon glyphicon-remove"></span>'.html_safe
         end %>
-    <%= f.input :description, input_html: { placeholder: '輸入選項值', style: 'width:400px' },
+    <%= f.input :description, input_html: { placeholder: '輸入選項值; 勾選是否正確答案=>', style: 'width:400px' },
      label_html: { class: 'sr-only' } %>
       <div class="checkbox">
           <label>

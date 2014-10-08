@@ -18,7 +18,7 @@
         <td><%= link_to mc.id, mc %></td>
         <td><%=raw mc.description %></td>
         <td><%= link_to '編輯', edit_multiple_choice_path(mc) %></td>
-        <td><%= link_to '刪除', mc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '刪除', mc, method: :delete, data: { confirm: '確定?' } %></td>
       </tr>
     <% end %>
   </tbody>

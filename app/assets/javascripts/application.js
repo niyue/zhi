@@ -16,6 +16,11 @@
 //= require ckeditor/init
 //= require cocoon
 //= require bootstrap.min
-$(document).ready(function() {
-    $("[data-toggle='tooltip']").tooltip(); 
+
+var toggleTooltip = function () {
+    $("[data-toggle='tooltip']").tooltip();    
+};
+
+$(document).on('ready page:change', function() {
+    toggleTooltip();
 });

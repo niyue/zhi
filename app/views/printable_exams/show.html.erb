@@ -12,13 +12,13 @@
     <h2>選擇題</h2>
     <ol>
       <% @multiple_choices.each do |q| %>
-        <li><%= q.description %></li>
+        <li><%=raw q.description %></li>
       <% end %>
     </ol>
     <h2>問答題</h2>
     <ol>
       <% @essays.each do |q| %>
-        <li><%= q.description %></li>
+        <li><%=raw q.description %></li>
       <% end %>
     </ol>
   </body>
