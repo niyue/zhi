@@ -105,35 +105,40 @@ Logger.configure do
 end
 
 Model.new(:zhi_backup, 'Backup for zhi') do
+  begin
+    archive :assets do |archive|
+      archive.add './public/ckeditor_assets'
+    end
+    
+    ##
+    # SQLite [Database]
+    #
+    database SQLite do |db|
+      # Database name and path
+      #db.name               = "development.sqlite3"
+      env = ENV['RAILS_ENV'] || 'production'
+      db.path               =  "./db/#{env}.sqlite3"
 
-  archive :assets do |archive|
-    archive.add './public/ckeditor_assets'
+      # Optional: Use to set the location of this utility
+      #   if it cannot be found by name in your $PATH
+      db.sqlitedump_utility = "/usr/bin/sqlite3"
+    end
+
+    ##
+    # Local (Copy) [Storage]
+    #
+    store_with Local do |local|
+      local.path       = "./db/backups/"
+      local.keep       = 5
+    end
+
+    ##
+    # Gzip [Compressor]
+    #
+    compress_with Gzip
+  rescue Exception => e
+    puts e.message  
+    puts e.backtrace.inspect 
   end
-  
-  ##
-  # SQLite [Database]
-  #
-  database SQLite do |db|
-    # Database name and path
-    #db.name               = "development.sqlite3"
-    db.path               = ENV['RAILS_ENV'] ? "./db/#{ENV['RAILS_ENV']}.sqlite3" : "./db/production.sqlite3"
-
-    # Optional: Use to set the location of this utility
-    #   if it cannot be found by name in your $PATH
-    db.sqlitedump_utility = "/usr/bin/sqlite3"
-  end
-
-  ##
-  # Local (Copy) [Storage]
-  #
-  store_with Local do |local|
-    local.path       = "./db/backups/"
-    local.keep       = 5
-  end
-
-  ##
-  # Gzip [Compressor]
-  #
-  compress_with Gzip
 
 end
