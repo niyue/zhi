@@ -1,15 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>名稱:</strong>
   <%= @exam.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>描述:</strong>
   <%= @exam.description %>
 </p>
 
-<%= link_to 'Edit', edit_exam_path(@exam) %> |
-<%= link_to 'Exam questions', exam_questions_path(@exam) %> |
-<%= link_to 'Back', exams_path %>
+<%= link_to '打印', printable_exam_path(@exam), target: '_blank' %> |
+<%= link_to '答案', printable_exam_path(@exam, { answer: true }), target: '_blank' %> |
+<%= link_to '編輯', edit_exam_path(@exam) %> |
+<%= link_to '問題集', new_exam_part_path(@exam) %> |
+<%= link_to '返回', exams_path %>

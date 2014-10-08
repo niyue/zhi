@@ -12,7 +12,7 @@ linked_list_loop:
 
 permutation:
   name: string permutation
-  description: Print all permutation of String both iterative and recursive way
+  description: Print all permutations of a string both iterative and recursive ways
   answer: This is a test for candidate's basic programming and combination skill. You can find more details <a href="http://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/">here</a>
 
 remove_duplicates:
