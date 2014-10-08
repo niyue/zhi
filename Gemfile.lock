@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/jetthoughts/yaml_db.git
+  revision: fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba
+  ref: fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba
+  specs:
+    yaml_db (0.2.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,11 +35,10 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    atomic (1.1.14)
+    atomic (1.1.14-java)
     autoprefixer-rails (3.1.1.20141001)
       execjs
-    backup (3.4.0)
-      open4 (~> 1.3.0)
-      thor (>= 0.15.4, < 2)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     builder (3.2.2)
@@ -66,18 +72,19 @@ GEM
     json (1.8.1)
     json (1.8.1-java)
     libv8 (3.16.14.7)
-    mail (2.6.1)
-      mime-types (>= 1.16, < 3)
-    mime-types (2.4.1)
+    mail (2.5.4)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mime-types (1.25.1)
     minitest (5.4.2)
-    multi_json (1.10.1)
-    open4 (1.3.4)
+    multi_json (1.8.2)
     orm_adapter (0.5.0)
     paperclip (4.2.0)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    polyglot (0.3.3)
     puma (2.9.1)
       rack (>= 1.1, < 2.0)
     puma (2.9.1-java)
@@ -132,10 +139,15 @@ GEM
     therubyrhino (2.0.4)
       therubyrhino_jar (>= 1.7.3)
     therubyrhino_jar (1.7.4)
-    thor (0.19.1)
-    thread_safe (0.3.4)
-    thread_safe (0.3.4-java)
+    thor (0.18.1)
+    thread_safe (0.1.3)
+      atomic
+    thread_safe (0.1.3-java)
+      atomic
     tilt (1.4.1)
+    treetop (1.4.15)
+      polyglot
+      polyglot (>= 0.3.1)
     turbolinks (2.4.0)
       coffee-rails
     tzinfo (1.2.2)
@@ -150,7 +162,6 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
-  backup
   bootstrap-sass (~> 3.2.0)
   ckeditor
   cocoon
@@ -169,3 +180,4 @@ DEPENDENCIES
   therubyrhino
   turbolinks
   uglifier (>= 1.3.0)
+  yaml_db!

@@ -2,7 +2,8 @@
 
 # set environment varibles in secrets
 echo "Running deployment script..."
-source ~/.bash_profile
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+rvm --default use 2.1
 
 echo "Redirecting port 80 to 9292..."
 sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 9292
