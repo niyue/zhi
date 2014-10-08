@@ -3,7 +3,7 @@
 # set environment varibles in secrets
 echo "Running deployment script..."
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-rvm get stable --auto-dotfiles
+rvm --default 2.1
 ruby -v
 
 echo "Redirecting port 80 to 9292..."
