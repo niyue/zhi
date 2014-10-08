@@ -45,3 +45,5 @@ gem 'cocoon'
 gem 'jquery-ui-rails'
 
 gem 'backup'
+
+gem 'therubyracer'

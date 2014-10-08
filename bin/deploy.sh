@@ -7,6 +7,7 @@ source ~/.bash_profile
 echo "Redirecting port 80 to 9292..."
 sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 9292
 sudo iptables -t nat -I OUTPUT -p tcp -o lo --dport 80 -j REDIRECT --to-ports 9292
+# sudo yum -y install sqlite-devel
 
 bundle install
 
