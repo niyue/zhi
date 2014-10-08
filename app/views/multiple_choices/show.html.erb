@@ -1,33 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>問題:</strong>
-  <%=raw @multiple_choice.description %>
-</p>
-<p>
-  <strong>選項:</strong>
-  <ol type="A">
-  <% @multiple_choice.choices.each do |c| %>
-    <li><%= c.description %>
-        <% if c.correct %>
-           <span class="glyphicon glyphicon-ok"></span> 
-        <% end %>
-    </li>
-  <% end %>
-  </ol>
-</p>
-
-<p>
-  <strong>解答:</strong>
-  <%=raw @multiple_choice.answer %>
-</p>
-
-<div id="referring_exams">
-  <strong>試卷引用:</strong>
-  <% @referring_exams.each do |e| %>
-    <%= link_to e.name, e %>
-  <% end %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @multiple_choice.id %></h3>
+  </div>
+  <div class="panel-body">
+    <p>
+      <strong>問題:</strong>
+      <%=raw @multiple_choice.description %>
+    </p>
+    <p>
+      <strong>選項:</strong>
+      <ol type="A">
+      <% @multiple_choice.choices.each do |c| %>
+        <li><%= c.description %>
+            <% if c.correct %>
+               <span class="glyphicon glyphicon-ok"></span> 
+            <% end %>
+        </li>
+      <% end %>
+      </ol>
+    </p>
+  </div>
+  <div class="panel-body">
+    <p>
+      <strong>解答:</strong>
+      <%=raw @multiple_choice.answer %>
+    </p>
+  </div>
+  <div class="panel-footer">
+    <strong>試卷引用:</strong>
+    <% @referring_exams.each do |e| %>
+      <%= link_to e.name, e %>
+    <% end %>
+    <br/>
+    創建於: <%= @multiple_choice.created_at.localtime %>
+  </div>
 </div>
 
-<%= link_to '編輯', edit_multiple_choice_path(@multiple_choice) %> |
-<%= link_to '返回', multiple_choices_path %>
+<%= link_to '編輯', edit_multiple_choice_path(@multiple_choice), class: 'btn btn-default' %>
+<%= link_to '返回', multiple_choices_path, class: 'btn btn-default' %>

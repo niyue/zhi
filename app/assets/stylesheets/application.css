@@ -33,4 +33,23 @@ body {
 
 .top-buffer { margin-top:10px; }
 
+.jumbo {
+    border: 1px solid #ddd;
+    color: inherit;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    background-color: #eeeeee;
+}
+
+.inner-buffer {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.jumbo h1 {
+    font-size: 63px;
+}
+
 

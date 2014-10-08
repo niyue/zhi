@@ -1,12 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 skip_list:
-  description: What is the time complexity for search a skip list?
+  description: What is the time complexity for searching a skip list?
   answer: The search can be done in O(lgN) time.
-  
+
 binary_search_time_complexity:
   description: What is the binary search time complexity for a sorted array?
   answer: The search can be done in O(lgN) time.
-  
+
 inorder_traversal:
   description: Is inorder traversal for a binary tree a depth first search?
   answer: Yes; and level by level traversal of a binary tree is breadth first search.

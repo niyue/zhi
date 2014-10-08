@@ -1,23 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @essay.name %></h1>
-
-<div id="question">
-  <strong>問題:</strong>
-  <%=raw @essay.description %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @essay.name %></h3>
+  </div>
+  <div class="panel-body">
+    <strong>問題:</strong> <%=raw @essay.description %>
+  </div>
+  <div class="panel-body">
+    <strong>解答:</strong> <%=raw @essay.answer %>
+  </div>
+  <div class="panel-footer">
+      <strong>試卷引用:</strong>
+      <% @referring_exams.each do |e| %>
+        <%= link_to e.name, e %>
+      <% end %>
+      <br/>
+      創建於: <%= @essay.created_at.localtime %>
+  </div>
 </div>
 
-<div id="answer">
-  <strong>解答:</strong>
-  <%=raw @essay.answer %>
-</div>
-
-<div id="referring_exams">
-  <strong>試卷引用:</strong>
-  <% @referring_exams.each do |e| %>
-    <%= link_to e.name, e %>
-  <% end %>
-</div>
-
-<%= link_to '編輯', edit_essay_path(@essay) %> |
-<%= link_to '返回', essays_path %>
+<%= link_to '編輯', edit_essay_path(@essay), class: 'btn btn-default' %>
+<%= link_to '返回', essays_path, class: 'btn btn-default' %>

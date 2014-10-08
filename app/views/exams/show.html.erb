@@ -1,17 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>名稱:</strong>
-  <%= @exam.name %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @exam.name %></h3>
+  </div>
+  <div class="panel-body">
+    <p>
+      <%= @exam.description %>
+    </p>
+  </div>
+  <div class="panel-footer">
+    選擇題: <%= @exam.multiple_choices.length %> 
+    問答題: <%= @exam.essays.length %>
+    創建於: <%= @exam.created_at.localtime %>
+  </div>
+</div>
 
-<p>
-  <strong>描述:</strong>
-  <%= @exam.description %>
-</p>
-
-<%= link_to '打印', printable_exam_path(@exam), target: '_blank' %> |
-<%= link_to '答案', printable_exam_path(@exam, { answer: true }), target: '_blank' %> |
-<%= link_to '編輯', edit_exam_path(@exam) %> |
-<%= link_to '問題集', new_exam_part_path(@exam) %> |
-<%= link_to '返回', exams_path %>
+<%= link_to '打印', printable_exam_path(@exam), target: '_blank', class: 'btn btn-default' %>
+<%= link_to '答案', printable_exam_path(@exam, { answer: true }), target: '_blank', class: 'btn btn-default' %>
+<%= link_to '編輯', edit_exam_path(@exam), class: 'btn btn-default' %>
+<%= link_to '問題集', new_exam_part_path(@exam), class: 'btn btn-default' %>
+<%= link_to '返回', exams_path, class: 'btn btn-default' %>
