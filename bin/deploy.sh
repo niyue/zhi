@@ -15,7 +15,10 @@ gem install bundle
 bundle install
 
 echo "Performing backup..."
-RAILS_ENV=production backup perform --trigger zhi_backup -c db/backup.rb
+RAILS_ENV=production rake db:data:dump
+mkdir -p db/backups
+DATE=$(date +"%Y%m%d_%H%M%S")
+mv db/data.yml db/backups/data_$DATE.yml
 
 echo "Precompiling assets"
 rake assets:precompile
