@@ -41,6 +41,14 @@ class MultipleChoicesControllerTest < ActionController::TestCase
 
   test "should destroy multiple_choice" do
     assert_difference('MultipleChoice.count', -1) do
+      delete :destroy, id: multiple_choices(:probability)
+    end
+
+    assert_redirected_to multiple_choices_path
+  end
+  
+   test "should not destroy multiple_choice with dependency" do
+    assert_difference('MultipleChoice.count', 0) do
       delete :destroy, id: @multiple_choice
     end
 

@@ -54,10 +54,14 @@ class EssaysController < ApplicationController
   # DELETE /essays/1
   # DELETE /essays/1.json
   def destroy
-    @essay.destroy
     respond_to do |format|
-      format.html { redirect_to essays_url, notice: '成功刪除問答題.' }
-      format.json { head :no_content }
+      if Part.has_dependent?(@essay)
+        format.html { redirect_to essays_url, notice: '該題仍被引用無法刪除.' }
+      else
+        @essay.destroy
+        format.html { redirect_to essays_url, notice: '成功刪除問答題.' }
+        format.json { head :no_content }
+      end
     end
   end
 

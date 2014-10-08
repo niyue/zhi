@@ -1,5 +1,5 @@
 class Exam < ActiveRecord::Base
-  has_many :parts
+  has_many :parts, :dependent => :destroy
   
   def multiple_choices
     multiple_choice_questions = find_questions('MultipleChoice')

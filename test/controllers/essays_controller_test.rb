@@ -42,6 +42,14 @@ class EssaysControllerTest < ActionController::TestCase
 
   test "should destroy essay" do
     assert_difference('Essay.count', -1) do
+      delete :destroy, id: essays(:remove_duplicates)
+    end
+
+    assert_redirected_to essays_path
+  end
+  
+  test "should not destroy essay with dependency" do
+    assert_difference('Essay.count', 0) do
       delete :destroy, id: @essay
     end
 

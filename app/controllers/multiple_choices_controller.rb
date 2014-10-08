@@ -54,10 +54,14 @@ class MultipleChoicesController < ApplicationController
   # DELETE /multiple_choices/1
   # DELETE /multiple_choices/1.json
   def destroy
-    @multiple_choice.destroy
     respond_to do |format|
-      format.html { redirect_to multiple_choices_url, notice: '成功刪除選擇題.' }
-      format.json { head :no_content }
+      if Part.has_dependent?(@multiple_choice)
+        format.html { redirect_to multiple_choices_url, notice: '該題仍被引用無法刪除.' }
+      else
+        @multiple_choice.destroy
+        format.html { redirect_to multiple_choices_url, notice: '成功刪除選擇題.' }
+        format.json { head :no_content }
+      end
     end
   end
 
