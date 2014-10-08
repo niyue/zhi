@@ -2,7 +2,7 @@ require 'test_helper'
 
 class EssaysControllerTest < ActionController::TestCase
   setup do
-    @essay = essays(:one)
+    @essay = essays(:linked_list_loop)
   end
 
   test "should get index" do

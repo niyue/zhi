@@ -1,13 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  description: MyText
-
-two:
-  description: MyText
-
+skip_list:
+  description: What is the time complexity for search a skip list?
+  answer: The search can be done in O(lgN) time.
+  
 binary_search_time_complexity:
-  description: Binary search time complexity is
+  description: What is the binary search time complexity for a sorted array?
+  answer: The search can be done in O(lgN) time.
   
 inorder_traversal:
-  description: Is inorder traversal a depth first traversal?
+  description: Is inorder traversal for a binary tree a depth first search?
+  answer: Yes; and level by level traversal of a binary tree is breadth first search.
+
+probability:
+  description: Out of all the 2-digit integers between 1 and 100, a 2-digit number has to be selected at random. What is the probability that the selected number is not divisible by 7?
+  answer: There are total 90 two digit numbers, out of them 13 are divisible by 7

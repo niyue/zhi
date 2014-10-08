@@ -12,20 +12,35 @@
     <h2>選擇題</h2>
     <ol>
       <% @multiple_choices.each do |q| %>
-        <li>
+        <li class="top-buffer">
           <%=raw q.description %>
           <ol type="A">
           <% q.choices.each do |c| %>
-            <li><%= c.description %></li>
+            <li>
+              <%= c.description %>
+              <% if c.correct %>
+              <span class="glyphicon glyphicon-ok"></span> 
+              <% end %> 
+            </li>
           <% end %>
           </ol>
+          <div class="row">
+            答案: <%=raw q.answer %>
+          </div>
         </li>
       <% end %>
     </ol>
     <h2>問答題</h2>
     <ol>
       <% @essays.each do |q| %>
-        <li><%=raw q.description %></li>
+        <li class="top-buffer">
+          <p>
+            <%=raw q.description %>
+          </p>
+          <p>
+            答案: <%=raw q.answer %>
+          </p>
+        </li>
       <% end %>
     </ol>
   </body>

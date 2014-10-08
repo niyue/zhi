@@ -1,13 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyString
-
-two:
-  name: MyString
-  description: MyString
-
 nanjing:
-  name: Nan Jing
-  description: The exam for Nan Jing
+  name: 舊都
+  description: 鄉試
+
+shanghai:
+  name: 魔都
+  description: 會試 2014-10-16
+
+beijing:
+  name: 帝都
+  description: 天子親策于廷，曰廷试，亦曰殿试
+
+xian:
+  name: 廢都
+  description: 百人取一

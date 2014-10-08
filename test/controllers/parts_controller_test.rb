@@ -15,14 +15,14 @@ class PartsControllerTest < ActionController::TestCase
   test "should get new" do
     get :new, exam_id: @exam
     assert_response :success
-    assert_equal 2, assigns(:parts).length
+    assert_equal 5, assigns(:parts).length
     question = multiple_choices(:binary_search_time_complexity)
     code = question.class.name + question.id.to_s
     assert assigns(:parts).has_key?(code)
   end
 
   test "should create part" do
-    question = multiple_choices(:inorder_traversal)
+    question = multiple_choices(:probability)
     assert_difference('Part.count') do
       post :create, part: { exam_id: @part.exam_id, position: @part.position, question_id: question.id, question_type: 'MultipleChoice' }, exam_id: @exam
     end

@@ -1,11 +1,70 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  description: MyString
+skip_list_a:
+  description: O(N)
   correct: false
-  multiple_choice_id: 
+  multiple_choice: skip_list
 
-two:
-  description: MyString
+skip_list_b:
+  description: O(N^2)
   correct: false
-  multiple_choice_id: 
+  multiple_choice: skip_list
+
+skip_list_c:
+  description: O(lgN)
+  correct: true
+  multiple_choice: skip_list
+
+skip_list_d:
+  description: None of the above
+  correct: false
+  multiple_choice: skip_list
+
+binary_search_a:
+  description: O(N)
+  correct: false
+  multiple_choice: binary_search_time_complexity
+
+binary_search_b:
+  description: O(N^2)
+  correct: false
+  multiple_choice: binary_search_time_complexity
+
+binary_search_c:
+  description: O(lgN)
+  correct: true
+  multiple_choice: binary_search_time_complexity
+
+binary_search_d:
+  description: None of the above
+  correct: false
+  multiple_choice: binary_search_time_complexity
+
+inorder_traversal_a:
+  description: "YES"
+  correct: true
+  multiple_choice: inorder_traversal
+
+inorder_traversal_b:
+  description: "NO"
+  correct: false
+  multiple_choice: inorder_traversal
+
+probability_a:
+  description: 13/90
+  correct: false
+  multiple_choice: probability
+
+probability_b:
+  description: 12/90
+  correct: false
+  multiple_choice: probability
+
+probability_c:
+  description: 78/90
+  correct: false
+  multiple_choice: probability
+
+probability_d:
+  description: 77/90
+  correct: true
+  multiple_choice: probability

@@ -28,7 +28,7 @@ class MultipleChoicesController < ApplicationController
 
     respond_to do |format|
       if @multiple_choice.save
-        format.html { redirect_to @multiple_choice, notice: 'Multiple choice was successfully created.' }
+        format.html { redirect_to @multiple_choice, notice: '成功創建選擇題.' }
         format.json { render :show, status: :created, location: @multiple_choice }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MultipleChoicesController < ApplicationController
   def update
     respond_to do |format|
       if @multiple_choice.update(multiple_choice_params)
-        format.html { redirect_to @multiple_choice, notice: 'Multiple choice was successfully updated.' }
+        format.html { redirect_to @multiple_choice, notice: '成功更新選擇題.' }
         format.json { render :show, status: :ok, location: @multiple_choice }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class MultipleChoicesController < ApplicationController
   def destroy
     @multiple_choice.destroy
     respond_to do |format|
-      format.html { redirect_to multiple_choices_url, notice: 'Multiple choice was successfully destroyed.' }
+      format.html { redirect_to multiple_choices_url, notice: '成功刪除選擇題.' }
       format.json { head :no_content }
     end
   end

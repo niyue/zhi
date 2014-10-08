@@ -4,7 +4,22 @@ nanjing_mc_binary_search:
   question: binary_search_time_complexity (MultipleChoice)
   position: 1
 
-nanjing_mc_linked_list_loop:
+nanjing_mc_skip_list:
+  exam: nanjing
+  question: skip_list (MultipleChoice)
+  position: 2
+
+nanjing_mc_inorder_traversal:
+  exam: nanjing
+  question: inorder_traversal (MultipleChoice)
+  position: 3
+
+nanjing_e_linked_list_loop:
   exam: nanjing
   question: linked_list_loop (Essay)
-  position: 2
+  position: 4
+
+nanjing_e_permutation:
+  exam: nanjing
+  question: permutation (Essay)
+  position: 5

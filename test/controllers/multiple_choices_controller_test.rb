@@ -2,7 +2,7 @@ require 'test_helper'
 
 class MultipleChoicesControllerTest < ActionController::TestCase
   setup do
-    @multiple_choice = multiple_choices(:one)
+    @multiple_choice = multiple_choices(:skip_list)
   end
 
   test "should get index" do

@@ -4,7 +4,8 @@ class PrintableExamsController < ApplicationController
   def show
     @multiple_choices = @exam.multiple_choices;
     @essays = @exam.essays;
-    render layout: false
+    template = params[:answer] == 'true' ? 'show_with_answer' : 'show'
+    render template, layout: false
   end
   
   private

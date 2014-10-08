@@ -4,12 +4,18 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
 
 linked_list_loop:
   name: linked list loop
   description: How can you find a loop in a linked list?
+  answer: There many different solutions. You can find more details <a href="http://ostermiller.org/find_loop_singly_linked_list.html">here</a>
+
+permutation:
+  name: string permutation
+  description: Print all permutation of String both iterative and recursive way
+  answer: This is a test for candidate's basic programming and combination skill. You can find more details <a href="http://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/">here</a>
+
+remove_duplicates:
+  name: remote duplicaetd chars from a string
+  description: Remove duplicate chars from a string ("AAA BBB" -> "A B")
+  answer: A very simple finite automata machine to handle the state

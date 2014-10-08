@@ -28,7 +28,7 @@ class EssaysController < ApplicationController
 
     respond_to do |format|
       if @essay.save
-        format.html { redirect_to @essay, notice: 'Essay was successfully created.' }
+        format.html { redirect_to @essay, notice: '成功創建問答題.' }
         format.json { render :show, status: :created, location: @essay }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class EssaysController < ApplicationController
   def update
     respond_to do |format|
       if @essay.update(essay_params)
-        format.html { redirect_to @essay, notice: 'Essay was successfully updated.' }
+        format.html { redirect_to @essay, notice: '成功更新問答題.' }
         format.json { render :show, status: :ok, location: @essay }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class EssaysController < ApplicationController
   def destroy
     @essay.destroy
     respond_to do |format|
-      format.html { redirect_to essays_url, notice: 'Essay was successfully destroyed.' }
+      format.html { redirect_to essays_url, notice: '成功刪除問答題.' }
       format.json { head :no_content }
     end
   end
