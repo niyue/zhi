@@ -10,9 +10,13 @@ class PrintableExamsController < ApplicationController
         render template, layout: false
       end
       format.pdf do
+        @custom_cover_file = File.join(Rails.root, 'public', 'files', 'cover.pdf.erb')
+        @use_custom_cover_file = File.exists?(@custom_cover_file)
+        
         render pdf: @exam.name, 
-        margin: { top: 30, bottom: 0 },
-        header: { html: { template: 'printable_exams/page_header.pdf.erb' }, spacing: 8 }
+          show_as_html: params[:html].present?,
+          margin: { top: 30, bottom: 0 },
+          header: { html: { template: 'printable_exams/page_header.pdf.erb' }, spacing: 8 }
       end
     end
   end

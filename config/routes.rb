@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :multiple_choices
 
   resources :essays
+  
+  resources :settings
 
   mount Ckeditor::Engine => '/ckeditor'
   # The priority is based upon order of creation: first created -> highest priority.

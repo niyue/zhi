@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<%= form_tag '/settings/cover', method: :put do %>
+
+  <div class="form-inputs">
+    <div class="form-group text required">
+        <label class="text required control-label" for="cover">
+            <abbr title="required">*</abbr> 試卷首頁文字
+        </label>
+        <div class="controls">
+            <%= text_area_tag :cover, @cover, 
+                {rows: 20, cols: 25, 
+                    class: 'required form-control', id: 'cover'} %>
+        </div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= submit_tag '保存', {class: 'btn btn-default'} %>
+  </div>
+<% end %>

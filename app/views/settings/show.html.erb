@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<strong>試卷首頁內容:</strong>
+<p>
+<%=raw @cover %>
+</p>
+
+<%= link_to '編輯', edit_setting_path(:cover), class: 'btn btn-default' %>
+<%= link_to '返回試卷列表', exams_path, class: 'btn btn-default' %>

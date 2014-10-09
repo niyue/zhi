@@ -4,3 +4,4 @@
 * install rvm
 * rvm install 2.1
 * push to deploy, run bin/deploy.sh in post-receive
+* For Mac OS X, install the 64 bit wkhtmltopdf

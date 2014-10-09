@@ -9,7 +9,13 @@
   </head>
   <body onload='number_pages'>
     <div id="content">
-      <h1 class="text-center">Exam</h1>
+      <% if @use_custom_cover_file %>
+        <%= render file: @custom_cover_file %>
+      <% else %>
+        <%= render 'printable_exams/cover' %>
+      <% end %>
+      <div class="page-break"></div>
+      
       <h4>I. Single Choice</h4>
       <ol>
         <% @multiple_choices.each do |q| %>
