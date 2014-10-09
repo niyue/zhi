@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :exams do
     resources :parts
     resources :questions
+    resource :orders
   end
   
   resources :printable_exams  

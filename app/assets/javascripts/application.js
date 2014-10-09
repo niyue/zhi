@@ -16,6 +16,8 @@
 //= require ckeditor/init
 //= require cocoon
 //= require bootstrap.min
+//= require jquery-ui/sortable
+//= require jquery-ui/effect-highlight
 
 var toggleTooltip = function () {
     $("[data-toggle='tooltip']").tooltip();    
@@ -23,4 +25,41 @@ var toggleTooltip = function () {
 
 $(document).on('ready page:change', function() {
     toggleTooltip();
+});
+
+
+$(function() {
+    var sortableElement = '#multiple-choice-questions';
+    var fromIndex = 0;
+    if($(sortableElement).length > 0) {
+        var table_width = $(sortableElement).width()
+        var cells = $('.table').find('tr')[0].cells.length
+        var desired_width = table_width / cells + 'px'
+        $('.table td').css('width', desired_width)    
+    }
+        
+    $(sortableElement).sortable({
+        axis: 'y',
+        items: '.sortable-item',
+        cursor: 'move',
+        start: function (e, ui) {
+            fromIndex = ui.item.index();
+        },
+        stop: function (e, ui) {
+            ui.item.children('td').effect('highlight', {}, 1000);   
+        },
+        update: function (e, ui) {
+            var examId = ui.item.data('exam-id');
+            var questionId = ui.item.data('question-id');
+            var questionType = ui.item.data('question-type');
+            $.ajax({
+              type: 'PUT',
+              url: '/exams/' + examId + '/orders',
+              dataType: 'json',
+              data: { from: fromIndex, to: ui.item.index(), 
+                question_id: questionId, question_type: questionType }
+            });
+        }
+    });
+    $(sortableElement).disableSelection();
 });
