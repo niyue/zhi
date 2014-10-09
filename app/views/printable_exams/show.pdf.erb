@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>zhi</title>
+    <%= wicked_pdf_stylesheet_link_tag 'application' %>
+    <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+    <%= wicked_pdf_javascript_include_tag "number_pages" %>
+  </head>
+  <body onload='number_pages'>
+    <div id="content">
+      <h1 class="text-center"><%= @exam.name %></h1>
+      <h4>I. Single Choice</h4>
+      <ol>
+        <% @multiple_choices.each do |q| %>
+          <li class="top-buffer">
+            <%=raw q.description %>
+            <ol type="A">
+            <% q.choices.each do |c| %>
+              <li><%= c.description %></li>
+            <% end %>
+            </ol>
+          </li>
+        <% end %>
+      </ol>
+      
+      <div class="page-break"></div>
+      <h4>II. Essay Questions</h4>
+      <ol>
+        <% @essays.each_with_index do |q, i| %>
+          <li class="top-buffer">
+            <%=raw q.description %>
+          </li>
+          <% if i != @essays.length - 1 %>
+            <div class="page-break"></div>
+          <% end %>
+        <% end %>
+      </ol>
+    </div>
+  </body>
+</html>

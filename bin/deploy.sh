@@ -3,7 +3,6 @@
 # set environment varibles in secrets
 echo "Running deployment script..."
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-rvm --default 2.1
 ruby -v
 
 echo "Redirecting port 80 to 9292..."
@@ -20,8 +19,9 @@ RAILS_ENV=production rake db:data:dump
 mkdir -p db/backups
 DATE=$(date +"%Y%m%d_%H%M%S")
 mv db/data.yml db/backups/data_$DATE.yml
+echo "Data is backed up to db/backups/data_$DATE.yml"
 
-echo "Precompiling assets"
+echo "Precompiling assets..."
 RAILS_ENV=production rake assets:precompile
 
 echo "Migrate database..."

@@ -5,7 +5,16 @@ class PrintableExamsController < ApplicationController
     @multiple_choices = @exam.multiple_choices;
     @essays = @exam.essays;
     template = params[:answer] == 'true' ? 'show_with_answer' : 'show'
-    render template, layout: false
+    respond_to do |format|
+      format.html do
+        render template, layout: false
+      end
+      format.pdf do
+        render pdf: @exam.name, 
+        margin: { top: 30, bottom: 0 },
+        header: { html: { template: 'printable_exams/page_header.pdf.erb' }, spacing: 8 }
+      end
+    end
   end
   
   private
