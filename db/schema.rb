@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141007122323) do
+ActiveRecord::Schema.define(version: 20141009223636) do
 
   create_table "choices", force: true do |t|
     t.string   "description"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20141007122323) do
 
   add_index "parts", ["exam_id", "question_id", "question_type"], name: "index_parts_on_exam_id_and_question_id_and_question_type", unique: true
   add_index "parts", ["exam_id"], name: "index_parts_on_exam_id"
+  add_index "parts", ["position"], name: "index_parts_on_position"
 
   create_table "questions", force: true do |t|
     t.integer  "exam_id"

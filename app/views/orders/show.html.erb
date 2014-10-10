@@ -1,3 +1,5 @@
+<h1>試卷問題排序</h1>
+<p>請拖動表格行進行排序</p>
 <h2>選擇題</h2>
 <table id="multiple-choice-questions" class="table table-striped table-bordered top-buffer">
   <thead>
@@ -28,7 +30,7 @@
 
   <tbody>
     <% @essays.each do |essay| %>
-      <tr class="sortable-item" data-exam-id="<%= @exam.id %>" data-question-id="<%= essay.id %>" question-type="<%= essay.class.name %>">
+      <tr class="sortable-item" data-exam-id="<%= @exam.id %>" data-question-id="<%= essay.id %>" data-question-type="<%= essay.class.name %>">
         <td><%= link_to essay.name, essay %></td>
         <td><%=raw essay.description %></td>
       </tr>

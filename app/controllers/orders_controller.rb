@@ -8,7 +8,12 @@ class OrdersController < ApplicationController
   
   def update
     logger.debug(params)
+    question_type = params['question_type']
+    question_id = params['question_id'].to_i
+    from = params['from'].to_i
+    to = params['to'].to_i
     respond_to do |format|
+      @exam.reorder(question_type, question_id, from, to)
       format.json { render :show, status: :ok, location: exam_orders_path }
     end
   end

@@ -19,6 +19,10 @@ class Part < ActiveRecord::Base
     return depedents > 0
   end
   
+  def to_s
+    "#{position}-#{question_type}#{question_id}"
+  end
+  
   def self.exams(question)
     parts = Part.where({ 
       question_id: question.id, 
@@ -29,4 +33,5 @@ class Part < ActiveRecord::Base
     end
     Exam.find(exam_ids)
   end
+  
 end

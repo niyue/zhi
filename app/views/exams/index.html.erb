@@ -9,7 +9,7 @@
     <tr>
       <th>名稱</th>
       <th>描述</th>
-      <th colspan="5" width="30%">操作</th>
+      <th colspan="6" width="30%">操作</th>
     </tr>
   </thead>
 
@@ -22,6 +22,7 @@
         <td><%= link_to '答案', printable_exam_path(exam, { answer: true }), target: '_blank' %></td>
         <td><%= link_to '編輯', edit_exam_path(exam) %></td>
         <td><%= link_to '問題集', new_exam_part_path(exam) %></td>
+        <td><%= link_to '問題排序', exam_orders_path(exam) %></td>
         <td><%= link_to '刪除', exam, method: :delete, data: { confirm: '一失足成千古恨, 再回頭已百年身. 確定?' } %></td>
       </tr>
     <% end %>

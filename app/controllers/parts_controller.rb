@@ -32,6 +32,7 @@ class PartsController < ApplicationController
   def create
     @part = Part.new(part_params)
     @part.exam = @exam
+    @part.position = @exam.last_part_position(part_params['question_type']) + 1
 
     respond_to do |format|
       if @part.save

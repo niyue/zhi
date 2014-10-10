@@ -27,18 +27,16 @@ $(document).on('ready page:change', function() {
     toggleTooltip();
 });
 
-
-$(function() {
-    var sortableElement = '#multiple-choice-questions';
+var reorder = function (sortableElement) {
     var fromIndex = 0;
-    if($(sortableElement).length > 0) {
-        var table_width = $(sortableElement).width()
+    if(sortableElement.length > 0) {
+        var table_width = sortableElement.width()
         var cells = $('.table').find('tr')[0].cells.length
         var desired_width = table_width / cells + 'px'
         $('.table td').css('width', desired_width)    
     }
         
-    $(sortableElement).sortable({
+    sortableElement.sortable({
         axis: 'y',
         items: '.sortable-item',
         cursor: 'move',
@@ -61,5 +59,11 @@ $(function() {
             });
         }
     });
-    $(sortableElement).disableSelection();
+    sortableElement.disableSelection();    
+};
+
+$(document).on('ready page:change', function() {
+    reorder($('#multiple-choice-questions'));
+    reorder($('#essay-questions'));
 });
+
