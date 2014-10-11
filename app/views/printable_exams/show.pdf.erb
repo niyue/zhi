@@ -9,7 +9,7 @@
   <body>
     <div id="content">
       <% if @use_custom_cover_file %>
-        <%= render file: @custom_cover_file %>
+        <%= render inline: File.read(@custom_cover_file) %>
       <% else %>
         <%= render 'printable_exams/cover' %>
       <% end %>
