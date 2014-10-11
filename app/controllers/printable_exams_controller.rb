@@ -19,8 +19,9 @@ class PrintableExamsController < ApplicationController
         
         render pdf: @exam.name, 
           show_as_html: params[:html].present?,
-          margin: { top: 30, bottom: 0 },
-          header: { html: { template: 'printable_exams/page_header.pdf.erb' }, spacing: 8 }
+          margin: { top: 30, bottom: 20 },
+          header: { html: { template: 'printable_exams/page_header.pdf.erb' }, spacing: 8 },
+          footer: { html: { template: 'printable_exams/page_footer.pdf.erb' } }
       end
     end
   end

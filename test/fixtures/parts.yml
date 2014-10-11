@@ -14,6 +14,11 @@ nanjing_mc_inorder_traversal:
   question: inorder_traversal (MultipleChoice)
   position: 2
 
+nanjing_mc_lorem_ipsum:
+  exam: nanjing
+  question: lorem_ipsum (MultipleChoice)
+  position: 3
+
 nanjing_e_linked_list_loop:
   exam: nanjing
   question: linked_list_loop (Essay)

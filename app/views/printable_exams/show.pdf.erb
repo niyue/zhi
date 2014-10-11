@@ -5,9 +5,8 @@
     <title>zhi</title>
     <%= wicked_pdf_stylesheet_link_tag 'application' %>
     <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
-    <%= wicked_pdf_javascript_include_tag "number_pages" %>
   </head>
-  <body onload='number_pages'>
+  <body>
     <div id="content">
       <% if @use_custom_cover_file %>
         <%= render file: @custom_cover_file %>

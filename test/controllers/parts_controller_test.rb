@@ -15,7 +15,7 @@ class PartsControllerTest < ActionController::TestCase
   test "should get new" do
     get :new, exam_id: @exam
     assert_response :success
-    assert_equal 5, assigns(:parts).length
+    assert_equal 6, assigns(:parts).length
     question = multiple_choices(:binary_search_time_complexity)
     code = question.class.name + question.id.to_s
     assert assigns(:parts).has_key?(code)

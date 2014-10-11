@@ -68,3 +68,28 @@ probability_d:
   description: 77/90
   correct: true
   multiple_choice: probability
+
+lorem_ipsum_a:
+  description: lorem
+  correct: true
+  multiple_choice: lorem_ipsum
+
+lorem_ipsum_b:
+  description: ipsum
+  correct: false
+  multiple_choice: lorem_ipsum
+
+lorem_ipsum_c:
+  description: dolor
+  correct: false
+  multiple_choice: lorem_ipsum
+
+lorem_ipsum_d:
+  description: sit
+  correct: false
+  multiple_choice: lorem_ipsum
+
+lorem_ipsum_e:
+  description: amet
+  correct: false
+  multiple_choice: lorem_ipsum
