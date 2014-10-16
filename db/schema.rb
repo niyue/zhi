@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141009223636) do
+ActiveRecord::Schema.define(version: 20141016061444) do
 
   create_table "choices", force: true do |t|
     t.string   "description"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20141009223636) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "note"
   end
 
   create_table "multiple_choices", force: true do |t|

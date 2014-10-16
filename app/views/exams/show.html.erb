@@ -8,6 +8,10 @@
     <p>
       <%= @exam.description %>
     </p>
+    附加文字:<br/>
+    <p>
+      <%=raw @exam.note %>
+    </p>
   </div>
   <div class="panel-footer">
     選擇題: <%= @exam.multiple_choices.length %> 
@@ -16,7 +20,7 @@
   </div>
 </div>
 
-<%= link_to '打印', printable_exam_path(@exam), target: '_blank', class: 'btn btn-default' %>
+<%= link_to '打印', printable_exam_path(@exam, format: :pdf), target: '_blank', class: 'btn btn-default' %>
 <%= link_to '答案', printable_exam_path(@exam, { answer: true }), target: '_blank', class: 'btn btn-default' %>
 <%= link_to '編輯', edit_exam_path(@exam), class: 'btn btn-default' %>
 <%= link_to '問題集', new_exam_part_path(@exam), class: 'btn btn-default' %>
