@@ -24,12 +24,15 @@
             </li>
           <% end %>
           </ol>
+          <% unless params['multiple_choices_only'] %>
           <div class="row">
             答案: <%=raw q.answer %>
           </div>
+          <% end %>
         </li>
       <% end %>
     </ol>
+    <% unless params['multiple_choices_only'] %>
     <h2>問答題</h2>
     <ol>
       <% @essays.each do |q| %>
@@ -43,5 +46,6 @@
         </li>
       <% end %>
     </ol>
+    <% end %>
   </body>
 </html>
