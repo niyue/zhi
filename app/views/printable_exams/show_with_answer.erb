@@ -9,6 +9,7 @@
   </head>
   <body>
     <h1 class="text-center"><%= @exam.name %></h1>
+    <% unless params['essays_only'] %>
     <h2>選擇題</h2>
     <ol>
       <% @multiple_choices.each do |q| %>
@@ -32,6 +33,7 @@
         </li>
       <% end %>
     </ol>
+    <% end %>
     <% unless params['multiple_choices_only'] %>
     <h2>問答題</h2>
     <ol>
