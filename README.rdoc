@@ -1,5 +1,17 @@
 == README
 
+This is a simple system used to manage multiple choices/short answer questions for paper tests.
+
+== Features
+* Collect multiple choice questions
+* Collect short answer questions
+* Organize questions in a paper test
+* Reorder questions in a paper test
+* Paper test cover customization
+* Print paper test as PDF
+* Export paper test with answers
+
+== Set up
 * yum install ImageMagick
 * install rvm
 * rvm install 2.1
