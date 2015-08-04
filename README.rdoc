@@ -17,3 +17,9 @@ This is a simple system used to manage multiple choices/short answer questions f
 * rvm install 2.1
 * push to deploy, run bin/deploy.sh in post-receive
 * For Mac OS X, install the 64 bit wkhtmltopdf
+
+== Development
+* Start server
+    * `bundle exec puma -e production -d --pidfile log/puma.pid`
+* Stop server
+    * `bundle exec pumactl --pidfile log/puma.pid stop`
