@@ -49,3 +49,5 @@ gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1
 gem 'therubyracer'
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
+
+gem 'acts-as-taggable-on', '~> 3.4'

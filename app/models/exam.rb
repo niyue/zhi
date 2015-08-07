@@ -1,5 +1,6 @@
 class Exam < ActiveRecord::Base
   has_many :parts, :dependent => :destroy
+  acts_as_taggable
   
   def multiple_choices
     find_questions(MultipleChoice)
