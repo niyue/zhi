@@ -23,6 +23,11 @@
     :label => '解答',
     :input_html => { :ckeditor => { :customConfig => '/assets/ckeditor/config.js?body=1' } } %>
   </div>
+  
+  <div class="form-inputs top-buffer">
+    <%= f.input :tag_list, :input_html => {value: @multiple_choice.tag_list.to_s}, :label => '標籤', :hint => '逗號分隔, 例如: data_structure, binary_search_tree, recursion' %>
+  </div>
+  
   <div class="form-actions top-buffer">
     <%= f.button :submit, '保存', {class: 'btn btn-default'} %>
   </div>

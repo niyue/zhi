@@ -34,6 +34,9 @@
       <%= link_to e.name, e %>
     <% end %>
     <br/>
+    <strong>標籤:</strong>
+    <%= @multiple_choice.tag_list %>
+    <br/>
     創建於: <%= @multiple_choice.created_at.localtime %>
   </div>
 </div>

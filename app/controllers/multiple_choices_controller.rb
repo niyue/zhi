@@ -74,6 +74,6 @@ class MultipleChoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def multiple_choice_params
-      params.require(:multiple_choice).permit(:description, :answer, choices_attributes: [:id, :description, :correct, :_destroy])
+      params.require(:multiple_choice).permit(:description, :answer, :tag_list, choices_attributes: [:id, :description, :correct, :_destroy])
     end
 end
