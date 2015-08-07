@@ -18,3 +18,4 @@ public/ckeditor_assets
 db/backups
 .data
 cover.pdf.erb
+log
