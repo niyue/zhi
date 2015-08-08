@@ -7,3 +7,13 @@ tagging_mc_bst:
     taggable: inorder_traversal (MultipleChoice)
     tag: binary_search_tree
     context: tags
+
+tagging_skip_list_ds:
+    taggable: skip_list (MultipleChoice)
+    tag: data_structure
+    context: tags
+
+tagging_skip_list_prob:
+    taggable: skip_list (MultipleChoice)
+    tag: probability
+    context: tags

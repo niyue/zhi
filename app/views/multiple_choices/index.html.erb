@@ -6,7 +6,10 @@
 <% if params['tags'] %>
 <div class="row">
   <div class="col-md-11">
-    標籤: <%= params['tags'] %>
+    標籤:
+    <% for tag in params['tags'].split(',') %>
+      <%= link_to tag, multiple_choices_path(tags: tag) %> | 
+    <% end %>
   </div>
 </div>
 <% end %>

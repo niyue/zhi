@@ -35,7 +35,9 @@
     <% end %>
     <br/>
     <strong>標籤:</strong>
-    <%= @multiple_choice.tag_list %>
+    <% for tag in @multiple_choice.tag_list %>
+      <%= link_to tag, multiple_choices_path(tags: tag) %> | 
+    <% end %>
     <br/>
     創建於: <%= @multiple_choice.created_at.localtime %>
   </div>
