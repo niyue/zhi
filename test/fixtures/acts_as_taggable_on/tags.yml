@@ -1,0 +1,8 @@
+data_structure:
+    name: data_structure
+
+dynamic_programming:
+    name: dynamic_programming
+
+binary_search_tree:
+    name: binary_search_tree

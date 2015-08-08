@@ -10,6 +10,13 @@ class MultipleChoicesControllerTest < ActionController::TestCase
     assert_response :success
     assert_not_nil assigns(:multiple_choices)
   end
+  
+  test "should get index with tags" do
+    get :index, tags: 'data_structure,binary_search_tree'
+    assert_response :success
+    assert_not_nil assigns(:multiple_choices)
+    assert assigns(:multiple_choices).length > 0
+  end
 
   test "should get new" do
     get :new

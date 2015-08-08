@@ -4,7 +4,13 @@ class MultipleChoicesController < ApplicationController
   # GET /multiple_choices
   # GET /multiple_choices.json
   def index
-    @multiple_choices = MultipleChoice.all
+    if params['tags']
+      tag_list = params['tags'].split(',')
+      logger.debug({type: 'list_tagged_multiple_choices', tags: tag_list})
+      @multiple_choices = MultipleChoice.tagged_with(tag_list)
+    else
+      @multiple_choices = MultipleChoice.all
+    end
   end
 
   # GET /multiple_choices/1

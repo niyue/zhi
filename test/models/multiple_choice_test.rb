@@ -14,4 +14,9 @@ class MultipleChoiceTest < ActiveSupport::TestCase
     tags = mc.tags
     assert tags.length >= 3
   end
+  
+  test 'load tagged multiple choices' do
+    tagged_mcs = MultipleChoice.tagged_with(['data_structure', 'binary_search_tree'])
+    assert tagged_mcs.length > 0, "there should be at least one question with this tag"
+  end
 end

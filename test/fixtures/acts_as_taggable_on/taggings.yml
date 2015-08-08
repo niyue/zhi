@@ -1,0 +1,9 @@
+tagging_mc_ds:
+    taggable: inorder_traversal (MultipleChoice)
+    tag: data_structure
+    context: tags
+
+tagging_mc_bst:
+    taggable: inorder_traversal (MultipleChoice)
+    tag: binary_search_tree
+    context: tags

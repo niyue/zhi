@@ -3,6 +3,13 @@
   <div class="col-md-11"><h1>選擇題列表</h1></div><!--
   --><div class="col-md-1 top-padding-buffer"><%= link_to '新的選擇題', new_multiple_choice_path %></div>
 </div>
+<% if params['tags'] %>
+<div class="row">
+  <div class="col-md-11">
+    標籤: <%= params['tags'] %>
+  </div>
+</div>
+<% end %>
 
 <table class="table table-striped table-bordered top-buffer">
   <thead>
