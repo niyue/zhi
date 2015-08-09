@@ -1,3 +1,7 @@
+<%= stylesheet_link_tag 'select2.min.css', media: 'all' %>
+<%= javascript_include_tag "select2.full.min.js" %>
+<%= javascript_include_tag "select_tag" %>
+
 <%= simple_form_for(@multiple_choice) do |f| %>
   <%= f.error_notification %>
 
@@ -24,8 +28,9 @@
     :input_html => { :ckeditor => { :customConfig => '/assets/ckeditor/config.js?body=1' } } %>
   </div>
   
-  <div class="form-inputs top-buffer">
-    <%= f.input :tag_list, :input_html => {value: @multiple_choice.tag_list.to_s}, :label => '標籤', :hint => '逗號分隔, 例如: data_structure, binary_search_tree, recursion' %>
+  <div class="top-buffer">
+    <%= f.input :tag_list, :collection => @multiple_choice.tag_list, 
+    :input_html => { :multiple => 'multiple' }, :label => '標籤' %>
   </div>
   
   <div class="form-actions top-buffer">

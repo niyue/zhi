@@ -19,3 +19,4 @@ db/backups
 .data
 cover.pdf.erb
 log
+public/assets
