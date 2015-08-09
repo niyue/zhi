@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.6'
+gem 'rails', '4.2.3'
 # Use jdbcsqlite3 as the database for Active Record
 if RUBY_PLATFORM == "java"
     gem 'activerecord-jdbcsqlite3-adapter'
@@ -40,7 +40,7 @@ gem 'ckeditor'
 gem 'paperclip'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0'
 gem 'cocoon'
 gem 'jquery-ui-rails'
 
@@ -49,3 +49,7 @@ gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1
 gem 'therubyracer'
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
+
+gem 'acts-as-taggable-on', '~> 3.4'
+gem 'web-console', '~> 2.0', group: :development
+gem 'responders', '~> 2.0'

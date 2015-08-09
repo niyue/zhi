@@ -4,7 +4,13 @@ class MultipleChoicesController < ApplicationController
   # GET /multiple_choices
   # GET /multiple_choices.json
   def index
-    @multiple_choices = MultipleChoice.all
+    if params['tags']
+      tag_list = params['tags'].split(',')
+      logger.debug({type: 'list_tagged_multiple_choices', tags: tag_list})
+      @multiple_choices = MultipleChoice.tagged_with(tag_list)
+    else
+      @multiple_choices = MultipleChoice.all
+    end
   end
 
   # GET /multiple_choices/1
@@ -74,6 +80,6 @@ class MultipleChoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def multiple_choice_params
-      params.require(:multiple_choice).permit(:description, :answer, choices_attributes: [:id, :description, :correct, :_destroy])
+      params.require(:multiple_choice).permit(:description, :answer, {:tag_list => []}, choices_attributes: [:id, :description, :correct, :_destroy])
     end
 end

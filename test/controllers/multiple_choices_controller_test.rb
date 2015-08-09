@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class MultipleChoicesControllerTest < ActionController::TestCase
+  fixtures :all
   setup do
     @multiple_choice = multiple_choices(:skip_list)
   end
@@ -9,6 +10,13 @@ class MultipleChoicesControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:multiple_choices)
+  end
+  
+  test "should get index with tags" do
+    get :index, tags: 'data_structure,binary_search_tree'
+    assert_response :success
+    assert_not_nil assigns(:multiple_choices)
+    assert assigns(:multiple_choices).length > 0
   end
 
   test "should get new" do
@@ -37,6 +45,13 @@ class MultipleChoicesControllerTest < ActionController::TestCase
   test "should update multiple_choice" do
     patch :update, id: @multiple_choice, multiple_choice: { description: @multiple_choice.description }
     assert_redirected_to multiple_choice_path(assigns(:multiple_choice))
+  end
+  
+  test "should update multiple_choice with tag" do
+    assert_equal 2, @multiple_choice.tag_list.length
+    patch :update, id: @multiple_choice, multiple_choice: { tag_list: ['data_structure'] }
+    assert_redirected_to multiple_choice_path(assigns(:multiple_choice))
+    assert_equal 1, assigns(:multiple_choice).tag_list.length
   end
 
   test "should destroy multiple_choice" do
