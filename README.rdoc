@@ -10,6 +10,7 @@ This is a simple system used to manage multiple choices/short answer questions f
 * Paper test cover customization
 * Print paper test as PDF
 * Export paper test with answers
+* Tagging questions, and filter questions by tags
 
 == Set up
 * yum install ImageMagick
@@ -19,7 +20,13 @@ This is a simple system used to manage multiple choices/short answer questions f
 * For Mac OS X, install the 64 bit wkhtmltopdf
 
 == Development
-* Start server
+* Start development server
+    * `rails s`
+* Start production server
     * `bundle exec puma -e production -d --pidfile log/puma.pid`
 * Stop server
     * `bundle exec pumactl --pidfile log/puma.pid stop`
+
+== License
+
+The MIT License
