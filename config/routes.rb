@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :essays
   
+  resources :tags
+  
   resources :settings
 
   mount Ckeditor::Engine => '/ckeditor'
