@@ -4,7 +4,13 @@ class EssaysController < ApplicationController
   # GET /essays
   # GET /essays.json
   def index
-    @essays = Essay.all
+    if params['tags']
+      tag_list = params['tags'].split(',')
+      logger.debug({type: 'list_tagged_essays', tags: tag_list})
+      @essays = Essay.tagged_with(tag_list)
+    else
+      @essays = Essay.all
+    end
   end
 
   # GET /essays/1
@@ -74,6 +80,6 @@ class EssaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def essay_params
-      params.require(:essay).permit(:name, :description, :answer)
+      params.require(:essay).permit(:name, :description, :answer, {:tag_list => []})
     end
 end

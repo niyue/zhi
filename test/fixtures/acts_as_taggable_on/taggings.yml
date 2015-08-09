@@ -17,3 +17,8 @@ tagging_skip_list_prob:
     taggable: skip_list (MultipleChoice)
     tag: probability
     context: tags
+
+tagging_permutation_prob:
+    taggable: permutation (Essay)
+    tag: probability
+    context: tags

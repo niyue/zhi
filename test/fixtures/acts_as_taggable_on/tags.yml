@@ -9,3 +9,6 @@ binary_search_tree:
 
 probability:
     name: probability
+
+math:
+    name: math

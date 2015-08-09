@@ -16,6 +16,11 @@
         <%= link_to e.name, e %>
       <% end %>
       <br/>
+      <strong>標籤:</strong>
+      <% for tag in @essay.tag_list %>
+        <%= link_to tag, essays_path(tags: tag) %> | 
+      <% end %>
+      <br/>
       創建於: <%= @essay.created_at.localtime %>
   </div>
 </div>

@@ -1,3 +1,7 @@
+<%= stylesheet_link_tag 'select2.min.css', media: 'all' %>
+<%= javascript_include_tag "select2.full.min.js" %>
+<%= javascript_include_tag "select_tag" %>
+
 <%= simple_form_for(@essay, html: { role: 'form' }) do |f| %>
   <% if @essay.errors.any? %>
     <div id="error_explanation">
@@ -19,6 +23,11 @@
   <%= f.input :answer, :as => :ckeditor, 
     :label => '解答',
     :input_html => { :ckeditor => { :customConfig => '/assets/ckeditor/config.js?body=1' } } %>
+  </div>
+  
+  <div class="form-inputs top-buffer">
+    <%= f.input :tag_list, :collection => @essay.tag_list, 
+    :input_html => { :multiple => 'multiple' }, :label => '標籤' %>
   </div>
   
   <div class="form-actions">
