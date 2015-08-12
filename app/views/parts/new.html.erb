@@ -40,6 +40,7 @@
 <table class="table table-striped table-bordered top-buffer">
   <thead>
     <tr>
+      <th>序號</th>
       <th>名稱</th>
       <th>問題</th>
       <th>操作</th>
@@ -49,6 +50,7 @@
   <tbody>
     <% @all_essays.each do |essay| %>
       <tr>
+        <td><%= link_to essay.id, essay %></td>
         <td><%= link_to essay.name, essay %></td>
         <td><%=raw essay.description %></td>
         <td id="<%= essay.class.name + essay.id.to_s %>">
