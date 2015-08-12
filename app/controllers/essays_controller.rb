@@ -7,9 +7,9 @@ class EssaysController < ApplicationController
     if params['tags']
       tag_list = params['tags'].split(',')
       logger.debug({type: 'list_tagged_essays', tags: tag_list})
-      @essays = Essay.tagged_with(tag_list)
+      @essays = Essay.tagged_with(tag_list).includes(:tags)
     else
-      @essays = Essay.all
+      @essays = Essay.all.includes(:tags)
     end
   end
 

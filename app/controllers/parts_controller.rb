@@ -18,11 +18,11 @@ class PartsController < ApplicationController
     if params['tags']
       tag_list = params['tags'].split(',')
       logger.debug({type: 'new_part_for_exam', exam: @exam.id, tags: tag_list})
-      @all_multiple_choices = MultipleChoice.tagged_with(tag_list)
-      @all_essays = Essay.tagged_with(tag_list)
+      @all_multiple_choices = MultipleChoice.tagged_with(tag_list).includes(:tags)
+      @all_essays = Essay.tagged_with(tag_list).includes(:tags)
     else
-      @all_multiple_choices = MultipleChoice.all
-      @all_essays = Essay.all
+      @all_multiple_choices = MultipleChoice.all.includes(:tags)
+      @all_essays = Essay.all.includes(:tags)
     end
     
     @multiple_choices = @exam.multiple_choices

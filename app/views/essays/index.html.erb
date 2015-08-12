@@ -9,9 +9,7 @@
 <div class="row">
   <div class="col-md-11">
     標籤:
-    <% for tag in params['tags'].split(',') %>
-      <%= link_to tag, essays_path(tags: tag) %> | 
-    <% end %>
+    <%=raw params['tags'].split(',').map {|tag| link_to tag, essays_path(tags: tag)}.join(' | ') %>
   </div>
 </div>
 <% end %>
@@ -22,6 +20,7 @@
       <th>序號</th>
       <th>名稱</th>
       <th>問題</th>
+      <th>標籤</th>
       <th colspan="2" width="10%">操作</th>
     </tr>
   </thead>
@@ -32,6 +31,7 @@
         <td><%= link_to essay.id, essay %></td>
         <td><%= link_to essay.name, essay %></td>
         <td><%=raw essay.description %></td>
+        <td><%=raw essay.tags.map {|tag| link_to tag.name, essays_path(tags: tag.name)}.join(' | ') %></td>
         <td><%= link_to '編輯', edit_essay_path(essay) %></td>
         <td><%= link_to '刪除', essay, method: :delete, data: { confirm: '確定?' } %></td>
       </tr>

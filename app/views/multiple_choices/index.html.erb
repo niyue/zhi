@@ -7,9 +7,7 @@
 <div class="row">
   <div class="col-md-11">
     標籤:
-    <% for tag in params['tags'].split(',') %>
-      <%= link_to tag, multiple_choices_path(tags: tag) %> | 
-    <% end %>
+    <%=raw params['tags'].split(',').map {|tag| link_to tag, multiple_choices_path(tags: tag)}.join(' | ') %>
   </div>
 </div>
 <% end %>
@@ -19,6 +17,7 @@
     <tr>
       <th>序號</th>
       <th>問題</th>
+      <th>標籤</th>
       <th colspan="2" width="10%">操作</th>
     </tr>
   </thead>
@@ -28,6 +27,7 @@
       <tr>
         <td><%= link_to mc.id, mc %></td>
         <td><%=raw mc.description %></td>
+        <td><%=raw mc.tags.map {|tag| link_to tag.name, multiple_choices_path(tags: tag.name)}.join(' | ') %></td>
         <td><%= link_to '編輯', edit_multiple_choice_path(mc) %></td>
         <td><%= link_to '刪除', mc, method: :delete, data: { confirm: '確定?' } %></td>
       </tr>

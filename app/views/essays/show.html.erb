@@ -17,9 +17,7 @@
       <% end %>
       <br/>
       <strong>標籤:</strong>
-      <% for tag in @essay.tag_list %>
-        <%= link_to tag, essays_path(tags: tag) %> | 
-      <% end %>
+      <td><%=raw @essay.tags.map {|tag| link_to tag.name, essays_path(tags: tag.name)}.join(' | ') %></td>
       <br/>
       創建於: <%= @essay.created_at.localtime %>
   </div>

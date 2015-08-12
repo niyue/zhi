@@ -28,9 +28,7 @@
           <td><%=raw mc.description %></td>
           <!-- TODO: n+1 query -->
           <td>
-          <% for tag in mc.tag_list %>
-            <%= link_to tag, new_exam_part_path(@exam, tags: tag) %> | 
-          <% end %>
+          <%=raw mc.tags.map {|tag| link_to tag.name, new_exam_part_path(@exam, tags: tag.name)}.join(' | ') %>
           </td>
           <td id="<%= mc.class.name + mc.id.to_s %>">
             <%= render partial: 'form', locals: { 
@@ -62,9 +60,7 @@
         <td><%= link_to essay.name, essay %></td>
         <td><%=raw essay.description %></td>
         <td>
-          <% for tag in essay.tag_list %>
-            <%= link_to tag, new_exam_part_path(@exam, tags: tag) %> | 
-          <% end %>
+          <%=raw essay.tags.map {|tag| link_to tag.name, new_exam_part_path(@exam, tags: tag.name)}.join(' | ') %>
         </td>
         <td id="<%= essay.class.name + essay.id.to_s %>">
             <%= render partial: 'form', locals: { 

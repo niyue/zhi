@@ -7,9 +7,9 @@ class MultipleChoicesController < ApplicationController
     if params['tags']
       tag_list = params['tags'].split(',')
       logger.debug({type: 'list_tagged_multiple_choices', tags: tag_list})
-      @multiple_choices = MultipleChoice.tagged_with(tag_list)
+      @multiple_choices = MultipleChoice.tagged_with(tag_list).includes(:tags)
     else
-      @multiple_choices = MultipleChoice.all
+      @multiple_choices = MultipleChoice.all.includes(:tags)
     end
   end
 
