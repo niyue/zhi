@@ -16,6 +16,7 @@
     <tr>
       <th>序號</th>
       <th>問題</th>
+      <th>標籤</th>
       <th>操作</th>
     </tr>
   </thead>
@@ -25,6 +26,12 @@
         <tr>
           <td><%= link_to mc.id, mc %></td>
           <td><%=raw mc.description %></td>
+          <!-- TODO: n+1 query -->
+          <td>
+          <% for tag in mc.tag_list %>
+            <%= link_to tag, new_exam_part_path(@exam, tags: tag) %> | 
+          <% end %>
+          </td>
           <td id="<%= mc.class.name + mc.id.to_s %>">
             <%= render partial: 'form', locals: { 
                 exam: @exam,
@@ -43,6 +50,7 @@
       <th>序號</th>
       <th>名稱</th>
       <th>問題</th>
+      <th>標籤</th>
       <th>操作</th>
     </tr>
   </thead>
@@ -53,6 +61,11 @@
         <td><%= link_to essay.id, essay %></td>
         <td><%= link_to essay.name, essay %></td>
         <td><%=raw essay.description %></td>
+        <td>
+          <% for tag in essay.tag_list %>
+            <%= link_to tag, new_exam_part_path(@exam, tags: tag) %> | 
+          <% end %>
+        </td>
         <td id="<%= essay.class.name + essay.id.to_s %>">
             <%= render partial: 'form', locals: { 
                 exam: @exam,

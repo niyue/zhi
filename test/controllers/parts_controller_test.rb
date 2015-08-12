@@ -20,6 +20,15 @@ class PartsControllerTest < ActionController::TestCase
     code = question.class.name + question.id.to_s
     assert assigns(:parts).has_key?(code)
   end
+  
+  test "should get new with tag" do
+    get :new, exam_id: @exam, tags: 'probability'
+    assert_response :success
+    assert_equal 6, assigns(:parts).length
+    question = multiple_choices(:skip_list)
+    code = question.class.name + question.id.to_s
+    assert assigns(:parts).has_key?(code)
+  end
 
   test "should create part" do
     question = multiple_choices(:probability)

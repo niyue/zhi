@@ -15,8 +15,16 @@ class PartsController < ApplicationController
 
   # GET /exams/1/parts/new
   def new
-    @all_multiple_choices = MultipleChoice.all
-    @all_essays = Essay.all
+    if params['tags']
+      tag_list = params['tags'].split(',')
+      logger.debug({type: 'new_part_for_exam', exam: @exam.id, tags: tag_list})
+      @all_multiple_choices = MultipleChoice.tagged_with(tag_list)
+      @all_essays = Essay.tagged_with(tag_list)
+    else
+      @all_multiple_choices = MultipleChoice.all
+      @all_essays = Essay.all
+    end
+    
     @multiple_choices = @exam.multiple_choices
     @essays = @exam.essays
     @parts = part_code_map(@exam.parts)

@@ -8,6 +8,6 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( select2.full.min.js select2.min.css select_tag.js )
 
-%w( multiple_choices essays ).each do |controller|
+%w( multiple_choices essays exams parts orders ).each do |controller|
   Rails.application.config.assets.precompile += ["#{controller}.js", "#{controller}.js.coffee", "#{controller}.css"]
 end
