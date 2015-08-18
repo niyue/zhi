@@ -54,8 +54,12 @@ body {
 
 .page-break { display:block; clear:both; page-break-after:always; }
 
-.tag_cloud a.tag_small { font-size: 1.0em;  color: #999CA8;}
-.tag_cloud a.tag_normal { font-size: 1.2em; color: #666B7D;}
-.tag_cloud a.tag_medium { font-size: 1.4em; color: #333951;}
-.tag_cloud a.tag_big { font-size: 1.6em; color: #000826; }
+.tag_cloud a.tag_s { font-size: 1.1em;  color: #999CA8;}
+.tag_cloud a.tag_m { font-size: 1.3em; color: #666B7D;}
+.tag_cloud a.tag_l { font-size: 1.6em; color: #4D5267;}
+.tag_cloud a.tag_xl { font-size: 2.0em; color: #333951; }
+.tag_cloud a.tag_xxl { font-size: 2.5em; color: #000826; }
+.tag_cloud a.tag_xxxl { font-size: 3.0em; color: #000000; }
+
+.tag_cloud a:hover {color: white;}
 

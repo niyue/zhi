@@ -1,5 +1,5 @@
 <div class="tag_cloud">
-    <% tag_cloud(@tags, %w(tag_small tag_normal tag_medium tag_big)) do |tag, css_class| %>
+    <% tag_cloud(@tags, %w(tag_s tag_m tag_l tag_xl tag_xxl tag_xxxl)) do |tag, css_class| %>
       <%= link_to tag.name, multiple_choices_path(tags: tag.name), :class => css_class %> | 
     <% end %>
 </div>
