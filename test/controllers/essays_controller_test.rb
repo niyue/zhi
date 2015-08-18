@@ -23,6 +23,11 @@ class EssaysControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get tag cloud" do
+    get :tag_cloud
+    assert_response :success
+  end
+  
   test "should create essay" do
     assert_difference('Essay.count') do
       post :create, essay: { name: 'hanoi', description: 'essay question' }

@@ -14,7 +14,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :essays
+  resources :essays do
+    collection  do
+      get 'tag_cloud'      
+    end
+  end
   
   resources :tags
   

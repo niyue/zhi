@@ -54,8 +54,8 @@ body {
 
 .page-break { display:block; clear:both; page-break-after:always; }
 
-.css1 { font-size: 1.0em; }
-.css2 { font-size: 1.2em; }
-.css3 { font-size: 1.4em; }
-.css4 { font-size: 1.6em; }
+.tag_cloud a.tag_small { font-size: 1.0em;  color: #999CA8;}
+.tag_cloud a.tag_normal { font-size: 1.2em; color: #666B7D;}
+.tag_cloud a.tag_medium { font-size: 1.4em; color: #333951;}
+.tag_cloud a.tag_big { font-size: 1.6em; color: #000826; }
 

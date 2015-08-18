@@ -71,6 +71,10 @@ class EssaysController < ApplicationController
       end
     end
   end
+  
+  def tag_cloud
+    @tags = Essay.tag_counts_on(:tags)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

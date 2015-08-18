@@ -1,14 +1,17 @@
 data_structure:
     name: data_structure
+    taggings_count: 2
 
 dynamic_programming:
     name: dynamic_programming
 
 binary_search_tree:
     name: binary_search_tree
+    taggings_count: 1
 
 probability:
     name: probability
+    taggings_count: 2
 
 math:
     name: math
