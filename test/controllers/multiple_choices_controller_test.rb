@@ -23,6 +23,11 @@ class MultipleChoicesControllerTest < ActionController::TestCase
     get :new
     assert_response :success
   end
+  
+  test "should get tag cloud" do
+    get :tag_cloud
+    assert_response :success
+  end
 
   test "should create multiple_choice" do
     assert_difference('MultipleChoice.count') do

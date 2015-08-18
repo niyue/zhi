@@ -71,6 +71,10 @@ class MultipleChoicesController < ApplicationController
       end
     end
   end
+  
+  def tag_cloud
+    @tags = MultipleChoice.tag_counts_on(:tags)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

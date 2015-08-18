@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   
   resources :printable_exams  
 
-  resources :multiple_choices
+  resources :multiple_choices do
+    collection  do
+      get 'tag_cloud'      
+    end
+  end
 
   resources :essays
   
