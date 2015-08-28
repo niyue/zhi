@@ -6,6 +6,7 @@ class PrintableExamsController < ApplicationController
     @multiple_choices = @exam.multiple_choices
     @essays = @exam.essays
     template = params[:answer] == 'true' ? 'show_with_answer' : 'show'
+    @compact = params[:compact] == 'true'
     respond_to do |format|
       format.html do
         render template, layout: false

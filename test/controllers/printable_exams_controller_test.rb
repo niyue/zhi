@@ -15,6 +15,11 @@ class PrintableExamsControllerTest < ActionController::TestCase
     assert_response :success
   end
   
+  test "should show printable exam PDF version in compact mode" do
+    get :show, id: @exam, format: :pdf, compact: true
+    assert_response :success
+  end
+  
   test "should show printable exam with answer" do
     get :show, id: @exam, answer: true
     assert_response :success

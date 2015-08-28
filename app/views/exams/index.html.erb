@@ -18,7 +18,7 @@
       <tr>
         <td><%= link_to exam.name, exam %></td>
         <td><%= exam.description %></td>
-        <td><%= link_to '打印', printable_exam_path(exam, format: :pdf), target: '_blank' %></td>
+        <td><%= link_to '打印', printable_exam_path(exam, { format: :pdf, compact: true }), target: '_blank' %></td>
         <td><%= link_to '答案', printable_exam_path(exam, { answer: true }), target: '_blank' %></td>
         <td><%= link_to '問答題答案', printable_exam_path(exam, { answer: true, essays_only: true }), target: '_blank' %></td>
         <td><%= link_to '選擇題答案', printable_exam_path(exam, { answer: true, multiple_choices_only: true }), target: '_blank' %></td>

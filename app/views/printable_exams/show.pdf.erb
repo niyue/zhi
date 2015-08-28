@@ -36,7 +36,7 @@
           <li class="top-buffer">
             <%=raw q.description %>
           </li>
-          <% if i != @essays.length - 1 %>
+          <% if not @compact and i != @essays.length - 1 %>
             <div class="page-break"></div>
           <% end %>
         <% end %>
