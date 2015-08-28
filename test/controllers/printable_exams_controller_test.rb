@@ -20,6 +20,16 @@ class PrintableExamsControllerTest < ActionController::TestCase
     assert_response :success
   end
   
+  test "should show printable exam PDF version for different paper size" do
+    get :show, id: @exam, format: :pdf, paper_size: 'a5'
+    assert_response :success
+  end
+  
+  test "should show printable exam PDF version for different margin_left" do
+    get :show, id: @exam, format: :pdf, margin_left: 20
+    assert_response :success
+  end
+  
   test "should show printable exam with answer" do
     get :show, id: @exam, answer: true
     assert_response :success
