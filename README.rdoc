@@ -13,11 +13,33 @@ This is a simple system used to manage multiple choices/short answer questions f
 * Tagging questions, and filter questions by tags
 
 == Set up
+* On CentOS
+```
+git clone https://github.com/niyue/zhi.git
+sudo yum --assumeyes install ansible
+pip install --upgrade pip
+pip install cryptography --upgrade
+ansible-galaxy install rvm_io.ruby
+
+```
+
 * yum install ImageMagick
 * install rvm
 * rvm install 2.1
 * push to deploy, run bin/deploy.sh in post-receive
 * For Mac OS X, install the 64 bit wkhtmltopdf
+    * Install Xcode command line tools
+        * `xcode-select --install`
+    * `brew cask install wkhtmltopdf`
+    * Install therubytracer
+        * `gem install therubyracer -v '0.12.1'`
+    * Install libv8
+        * `gem install libv8 -v '3.16.14.11' -- --with-system-v8`
+    * Install all dependencies
+        * `bundle install`
+    * (Optional) Restore backed up data
+        * Copy data.yml to `db` folder
+        * `rake db:data:load`
 
 == Development
 * Start development server

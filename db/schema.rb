@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150807211907) do
 
-  create_table "choices", force: true do |t|
+  create_table "choices", force: :cascade do |t|
     t.string   "description"
     t.boolean  "correct",            default: false
     t.integer  "multiple_choice_id"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20150807211907) do
 
   add_index "choices", ["multiple_choice_id"], name: "index_choices_on_multiple_choice_id"
 
-  create_table "ckeditor_assets", force: true do |t|
+  create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
     t.integer  "data_file_size"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20150807211907) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
-  create_table "essays", force: true do |t|
+  create_table "essays", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.text     "answer"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150807211907) do
     t.datetime "updated_at"
   end
 
-  create_table "exams", force: true do |t|
+  create_table "exams", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
@@ -55,14 +55,14 @@ ActiveRecord::Schema.define(version: 20150807211907) do
     t.text     "note"
   end
 
-  create_table "multiple_choices", force: true do |t|
+  create_table "multiple_choices", force: :cascade do |t|
     t.text     "description"
     t.text     "answer"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "parts", force: true do |t|
+  create_table "parts", force: :cascade do |t|
     t.integer  "exam_id"
     t.integer  "question_id"
     t.string   "question_type"
@@ -75,26 +75,7 @@ ActiveRecord::Schema.define(version: 20150807211907) do
   add_index "parts", ["exam_id"], name: "index_parts_on_exam_id"
   add_index "parts", ["position"], name: "index_parts_on_position"
 
-  create_table "questions", force: true do |t|
-    t.integer  "exam_id"
-    t.integer  "question_id"
-    t.string   "question_type"
-    t.integer  "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "questions", ["exam_id"], name: "index_questions_on_exam_id"
-
-  create_table "short_answers", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.text     "answer"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "taggings", force: true do |t|
+  create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
     t.string   "taggable_type"
@@ -107,7 +88,7 @@ ActiveRecord::Schema.define(version: 20150807211907) do
   add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
   add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
 
-  create_table "tags", force: true do |t|
+  create_table "tags", force: :cascade do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
   end

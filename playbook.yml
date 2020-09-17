@@ -1,0 +1,21 @@
+---
+
+- name: deploy
+  hosts: all
+  connection: ssh
+  tasks:
+    - include_role:
+        name: rvm_io.ruby
+      vars:
+        tags: ruby
+        rvm1_rubies: ['ruby-2.3.1']
+        rvm1_user: 'root'
+
+    - yum: 
+        name: ruby-devel
+        state: present
+
+    - name: install dependencies
+      command: chdir=~/zhi bundle install
+
+

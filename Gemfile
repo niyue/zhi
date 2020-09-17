@@ -47,9 +47,9 @@ gem 'jquery-ui-rails'
 gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
 
 gem 'therubyracer'
-gem 'wkhtmltopdf-binary'
-gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary', '0.12.4'
+gem 'wicked_pdf', '1.0.3'
 
 gem 'acts-as-taggable-on', '~> 3.4'
-gem 'web-console', '~> 2.0', group: :development
+gem 'web-console', '2.2.1', group: :development
 gem 'responders', '~> 2.0'
